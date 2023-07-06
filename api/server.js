@@ -50,18 +50,30 @@ const getAssetInfo = async (publicId) => {
   }
 };
 
+// app.get("/photos", async (req, res) => {
+//   // const response = await axios.get(BASE_URL + "/resources/image", {
+//   const response = await axios.get(
+//     BASE_URL + "/resources/search?expression=folder:Fronts",
+//     {
+//       auth,
+//       params: {
+//         next_cursor: req.query.next_cursor,
+//       },
+//     }
+//   );
+//   return res.send(response.data);
+// });
+
 app.get("/photos", async (req, res) => {
-  // const response = await axios.get(BASE_URL + "/resources/image", {
-  const response = await axios.get(
-    BASE_URL + "/resources/search?expression=folder:Fronts",
-    {
-      auth,
-      params: {
-        next_cursor: req.query.next_cursor,
-      },
-    }
-  );
-  return res.send(response.data);
+  cloudinary.search
+  .expression('folder:Fronts')
+  .with_field('context')
+  .with_field('tags')
+  .max_results(100)
+  .execute()
+  .then(result=>res.send(result));
+
+  //return res.send(response.data);
 });
 
 app.get("/search", async (req, res) => {
