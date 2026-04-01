@@ -1,65 +1,463 @@
 import Image from "next/image";
 
+const works = [
+  {
+    category: "Porti sculptate",
+    title: "Poarta maramureseana cu motiv solar",
+    description:
+      "Stejar masiv sculptat manual, cu ritm traditional si detalii atent proportionate.",
+    image: "/images/album-triptice.jpg",
+    imageAlt:
+      "Lucrare sculptata in lemn — compozitie cu motive traditionale, detaliu atelier.",
+  },
+  {
+    category: "Troite",
+    title: "Troita de hotar",
+    description:
+      "Lucrare de exterior, gandita pentru rezistenta in timp si expresie simbolica limpede.",
+    image: "/images/album-troite.jpg",
+    imageAlt: "Troita sculptata in lemn, lucrare de atelier.",
+  },
+  {
+    category: "Sculptura decorativa",
+    title: "Stalp ornamental pentru prispa",
+    description:
+      "Piesa cu volum vertical, inspirata din motive vechi romanesti reinterpretate sobru.",
+    image: "/images/album-cruce-model-sapanta.jpg",
+    imageAlt: "Cruce sculptata in lemn, model inspirat din traditie.",
+  },
+  {
+    category: "Sculptura bisericeasca",
+    title: "Usi de altar",
+    description:
+      "Compozitie sculptata cu accent pe echilibru, linie si respect pentru traditie.",
+    image: "/images/album-axionita-prodromita.jpg",
+    imageAlt: "Sculptura bisericeasca in lemn — icoana Axionita Prodromita.",
+  },
+  {
+    category: "Icoane",
+    title: "Icoane sculptate in lemn masiv",
+    description:
+      "Lucrari liturgice lucrate manual, cu respect pentru canoane si pentru expresia duhovniceasca a chipului.",
+    image: "/images/album-icoane.jpg",
+    imageAlt: "Icoane sculptate in lemn, detaliu atelier.",
+  },
+  {
+    category: "Icoane pe usi",
+    title: "Usi bisericesti cu icoane in relief",
+    description:
+      "Compozitii integrate in panouri de usa, gandite pentru spatiul liturgic si pentru citire clara a subiectului.",
+    image: "/images/album-icoane-pe-usi.jpg",
+    imageAlt: "Usi sculptate cu icoane, lucrare bisericeasca.",
+  },
+  {
+    category: "Iconostas",
+    title: "Iconostas — structura si registre sculptate",
+    description:
+      "Ansamblu coordonat, cu proportii stabile si ritm al registrelor, potrivit randuielii bisericii.",
+    image: "/images/album-iconostas.jpg",
+    imageAlt: "Iconostas sculptat in lemn.",
+  },
+  {
+    category: "Ingeri",
+    title: "Ingeri sculptati — aripi, linii si lumina",
+    description:
+      "Piese contemplative, lucrate cu atentie la volum si la gest, pentru spatiu de rugaciune sau casa.",
+    image: "/images/album-ingeri.jpg",
+    imageAlt: "Sculptura in lemn — inger, detaliu lucrare.",
+  },
+  {
+    category: "Lucrari liturgice",
+    title: "Racla Petru Voda",
+    description:
+      "Racla sculptata in lemn masiv, gandita cu sobrietate liturgica si finisaj potrivit spatiului de inchinare.",
+    image: "/images/album-racla-petru-voda.jpg",
+    imageAlt: "Racla sculptata in lemn — Manastirea Petru Voda.",
+  },
+  {
+    category: "Lucrari liturgice",
+    title: "Strana arhiereasca",
+    description:
+      "Piesa pentru slujirea la altar, lucrata manual, cu proportii clare si detalii respectand randuiala bisericeasca.",
+    image: "/images/album-strana-arhiereasca.jpg",
+    imageAlt: "Strana arhiereasca sculptata in lemn.",
+  },
+  {
+    category: "Lucrari liturgice",
+    title: "Racla Danion",
+    description:
+      "Racla sculptata in lemn, cu linii clare si finisaj potrivit cinstirii moastelor.",
+    image: "/images/album-racla-danion.jpg",
+    imageAlt: "Racla sculptata in lemn — Danion.",
+  },
+  {
+    category: "Lucrari liturgice",
+    title: "Racla",
+    description:
+      "Racla din lemn masiv, lucrata manual: volum echilibrat, detalii curate si rost liturgic limpede.",
+    image: "/images/album-racla.jpg",
+    imageAlt: "Racla sculptata in lemn.",
+  },
+  {
+    category: "Sculptura bisericeasca",
+    title: "Poliptice",
+    description:
+      "Poliptic in lemn: mai multe panouri unite intr-o compozitie coerenta, pentru spatiu de cult sau cinstire.",
+    image: "/images/album-poliptice.jpg",
+    imageAlt: "Poliptice sculptate in lemn, mai multe registre.",
+  },
+  {
+    category: "Obiecte liturgice",
+    title: "Matrita lumanare",
+    description:
+      "Matrita pentru lumanari, sculptata manual in lemn: forma stabila, finisaj curat, potrivita uzului in biserica sau acasa.",
+    image: "/images/album-matrita-lumanare.jpg",
+    imageAlt: "Matrita pentru lumanari, sculptata in lemn.",
+  },
+  {
+    category: "Decor de gradina",
+    title: "Sah de gradina",
+    description:
+      "Set de sah sculptat in lemn, gandit pentru exterior: piese solide, tabla potrivita aerului liber si uzului indelungat.",
+    image: "/images/album-sah-gradina.jpg",
+    imageAlt: "Set de sah sculptat in lemn pentru gradina.",
+  },
+  {
+    category: "Sah in lemn",
+    title: "Sah dacii si romanii",
+    description:
+      "Piese modelate pe doua tabere istorice, lucrate manual: jocul devine si poveste, si piesa de atelier.",
+    image: "/images/album-sah-dacii-romanii.jpg",
+    imageAlt: "Sah sculptat in lemn — tematica daci si romani.",
+  },
+  {
+    category: "Sculptura decorativa",
+    title: "Suport sticla Dac",
+    description:
+      "Suport pentru sticla, sculptat in lemn cu motiv dacic: stabil, functional si potrivit mesei sau bufetului.",
+    image: "/images/album-suport-sticla-dac.jpg",
+    imageAlt: "Suport pentru sticla sculptat in lemn, motiv dacic.",
+  },
+  {
+    category: "Rame sculptate",
+    title: "Rame",
+    description:
+      "Rame din lemn masiv, finisaj curat: pentru tablouri, oglinzi sau icoane, la dimensiune ceruta.",
+    image: "/images/album-rame.jpg",
+    imageAlt: "Rame sculptate in lemn.",
+  },
+];
+
+const processSteps = [
+  {
+    no: "01",
+    title: "Alegerea lemnului",
+    text: "Selectie atenta de esenta, fibra si umiditate, in functie de tipul lucrarii.",
+  },
+  {
+    no: "02",
+    title: "Schita si simbol",
+    text: "Stabilirea compozitiei si a motivelor traditionale, in acord cu spatiul unde va sta piesa.",
+  },
+  {
+    no: "03",
+    title: "Sculptare manuala",
+    text: "Modelare in etape, cu unelte clasice, rabdare si lucru atent pe detaliu.",
+  },
+  {
+    no: "04",
+    title: "Finisaj si patina",
+    text: "Protectie, ton cald si textura naturala care lasa lemnul sa respire in timp.",
+  },
+];
+
+function FramedImage({
+  src,
+  alt,
+  className,
+  sizes,
+  priority,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  sizes: string;
+  priority?: boolean;
+}) {
+  return (
+    <div
+      className={`relative overflow-hidden rounded-sm border border-[var(--border-soft)] bg-[var(--panel)] ${className}`}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover"
+        sizes={sizes}
+        priority={priority}
+      />
+    </div>
+  );
+}
+
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="grain-bg min-h-screen">
+      <header className="sticky top-0 z-30 border-b border-[var(--border-soft)]/80 bg-[color:rgba(244,237,228,0.88)] backdrop-blur-sm">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8">
+          <div>
+            <p className="font-heading text-2xl text-[var(--wood-dark)]">
+              Paul Botescu
+            </p>
+            <p className="text-xs uppercase tracking-[0.18em] text-[var(--wood-mid)]">
+              Sculptura in lemn
+            </p>
+          </div>
+          <nav className="hidden gap-7 text-sm text-[var(--wood-dark)] md:flex">
+            <a href="#lucrari" className="hover:text-[var(--accent-red)]">
+              Lucrari
+            </a>
+            <a href="#despre" className="hover:text-[var(--accent-red)]">
+              Despre
+            </a>
+            <a href="#proces" className="hover:text-[var(--accent-red)]">
+              Proces
+            </a>
+            <a href="#contact" className="hover:text-[var(--accent-red)]">
+              Contact
+            </a>
+          </nav>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+      </header>
+
+      <main>
+        <section className="mx-auto grid max-w-6xl gap-10 px-5 pb-18 pt-8 md:grid-cols-12 md:px-8 md:pt-10">
+          <div className="md:col-span-7">
+            <FramedImage
+              src="/images/paul.jpg"
+              alt="Paul Botescu, sculptor in lemn, in atelier"
+              className="h-[58svh] min-h-[420px] w-full shadow-[0_14px_36px_rgba(74,46,31,0.18)]"
+              sizes="(max-width: 768px) 100vw, 58vw"
+              priority
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          </div>
+          <div className="md:col-span-5 md:self-center">
+            <p className="mb-3 text-xs uppercase tracking-[0.24em] text-[var(--wood-mid)]">
+              Mestesug autentic romanesc
+            </p>
+            <h1 className="font-heading text-4xl leading-tight text-[var(--wood-dark)] md:text-5xl">
+              Sculptura traditionala in lemn, facuta cu rabdare si respect
+              pentru simbol.
+            </h1>
+            <p className="mt-6 text-[1.05rem] leading-8 text-[var(--text-main)]/90">
+              Lucrari realizate manual in atelier, din lemn masiv: porti,
+              troite, usi sculptate si piese ornamentale pentru case si spatii
+              de cult.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#lucrari"
+                className="rounded-sm bg-[var(--wood-dark)] px-6 py-3 text-sm font-medium text-[var(--background-soft)] transition hover:opacity-90"
+              >
+                Vezi lucrarile
+              </a>
+              <a
+                href="#contact"
+                className="rounded-sm border border-[var(--wood-mid)] px-6 py-3 text-sm font-medium text-[var(--wood-dark)] transition hover:bg-[var(--background-soft)]"
+              >
+                Solicita o lucrare
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <div className="section-divider mx-auto max-w-6xl px-5 md:px-8" />
+
+        <section id="lucrari" className="mx-auto max-w-6xl px-5 py-18 md:px-8">
+          <p className="text-xs uppercase tracking-[0.24em] text-[var(--wood-mid)]">
+            Lucrari
+          </p>
+          <h2 className="font-heading mt-3 text-4xl text-[var(--wood-dark)]">
+            Piese care lasa lemnul sa vorbeasca
+          </h2>
+          <p className="mt-4 max-w-2xl leading-8 text-[var(--text-main)]/85">
+            Fiecare lucrare este gandita pentru locul ei, cu detalii sculptate
+            curat si proportii stabile. Galeria de mai jos este pregatita pentru
+            fotografii reale de atelier si de montaj.
+          </p>
+
+          <div className="mt-12 grid gap-x-8 gap-y-14 md:grid-cols-2">
+            {works.map((work) => (
+              <article key={work.title} className="group">
+                <FramedImage
+                  src={work.image}
+                  alt={work.imageAlt}
+                  className="aspect-[4/3] w-full shadow-[0_10px_26px_rgba(74,46,31,0.12)] transition duration-300 group-hover:translate-y-[-2px] group-hover:shadow-[0_14px_30px_rgba(74,46,31,0.16)]"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <p className="mt-5 text-xs uppercase tracking-[0.2em] text-[var(--accent-red)]">
+                  {work.category}
+                </p>
+                <h3 className="font-heading mt-2 text-3xl text-[var(--wood-dark)]">
+                  {work.title}
+                </h3>
+                <p className="mt-3 leading-7 text-[var(--text-main)]/85">
+                  {work.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section
+          id="despre"
+          className="mx-auto grid max-w-6xl gap-10 px-5 py-18 md:grid-cols-12 md:px-8"
+        >
+          <div className="md:col-span-5">
+            <p className="text-xs uppercase tracking-[0.24em] text-[var(--wood-mid)]">
+              Despre artist
+            </p>
+            <h2 className="font-heading mt-3 text-4xl text-[var(--wood-dark)]">
+              Atelierul, locul unde timpul lucreaza impreuna cu mana
+            </h2>
+            <p className="mt-6 leading-8 text-[var(--text-main)]/90">
+              Paul Botescu este sculptor in lemn cu practica dedicata lucrarilor
+              traditionale. Fiecare piesa este lucrata manual, cu atentie pentru
+              fibra, pentru simbol si pentru rostul pe care lucrarea il va avea.
+            </p>
+            <p className="mt-5 leading-8 text-[var(--text-main)]/90">
+              In atelier, nimic nu este grabit. Forma se construieste treptat,
+              prin observatie, disciplina si respect pentru material. Rezultatul
+              este o lucrare care poarta urme vii de lucru, nu doar un obiect
+              decorativ.
+            </p>
+            <blockquote className="mt-7 border-l-2 border-[var(--accent-gold)] pl-4 font-heading text-2xl text-[var(--wood-dark)]">
+              &ldquo;Lemnul bun cere rabdare. In el ramane urma mainii, nu doar
+              forma.&rdquo;
+            </blockquote>
+          </div>
+          <div className="md:col-span-7 md:pt-8">
+            <FramedImage
+              src="/images/hero-facebook.jpg"
+              alt="Atelier Paul Botescu — detaliu lucrare sculptata in lemn"
+              className="h-[460px] w-full shadow-[0_16px_30px_rgba(74,46,31,0.18)]"
+              sizes="(max-width: 768px) 100vw, 58vw"
+            />
+          </div>
+        </section>
+
+        <section id="proces" className="mx-auto max-w-6xl px-5 py-18 md:px-8">
+          <p className="text-xs uppercase tracking-[0.24em] text-[var(--wood-mid)]">
+            Proces
+          </p>
+          <h2 className="font-heading mt-3 text-4xl text-[var(--wood-dark)]">
+            Cum ia nastere o lucrare
+          </h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            {processSteps.map((step) => (
+              <article
+                key={step.no}
+                className="rounded-sm border border-[var(--border-soft)] bg-[var(--background-soft)] p-7 shadow-[0_8px_20px_rgba(74,46,31,0.08)]"
+              >
+                <p className="font-heading text-4xl text-[var(--accent-gold)]">
+                  {step.no}
+                </p>
+                <h3 className="font-heading mt-2 text-2xl text-[var(--wood-dark)]">
+                  {step.title}
+                </h3>
+                <p className="mt-3 leading-7 text-[var(--text-main)]/85">
+                  {step.text}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-6xl px-5 py-18 md:px-8">
+          <div className="rounded-sm border border-[var(--border-soft)] bg-[var(--wood-dark)] px-6 py-12 text-center shadow-[0_14px_28px_rgba(74,46,31,0.2)] md:px-14">
+            <p className="font-heading text-3xl leading-relaxed text-[var(--background-soft)] md:text-4xl">
+              &ldquo;Fiecare bucata de lemn isi poarta propria poveste.&rdquo;
+            </p>
+            <p className="mt-4 text-xs uppercase tracking-[0.2em] text-[var(--accent-gold)]">
+              Atelier de sculptura traditionala
+            </p>
+          </div>
+        </section>
+
+        <section
+          id="contact"
+          className="mx-auto max-w-6xl px-5 pb-18 pt-8 md:px-8"
+        >
+          <div className="rounded-sm border border-[var(--border-soft)] bg-[var(--background-soft)] p-8 shadow-[0_10px_22px_rgba(74,46,31,0.09)] md:p-12">
+            <p className="text-xs uppercase tracking-[0.24em] text-[var(--wood-mid)]">
+              Contact
+            </p>
+            <h2 className="font-heading mt-3 text-4xl text-[var(--wood-dark)]">
+              Disponibil pentru lucrari personalizate
+            </h2>
+            <p className="mt-5 max-w-3xl leading-8 text-[var(--text-main)]/90">
+              Pentru comenzi, dimensiuni speciale sau colaborari, puteti trimite
+              un mesaj direct. Raspunsul vine cu propunere clara de executie si
+              estimare de timp.
+            </p>
+
+            <div className="mt-8 grid gap-5 text-[var(--text-main)]/90 md:grid-cols-2">
+              <p>
+                <span className="font-semibold">Telefon:</span> 07xx xxx xxx
+              </p>
+              <p>
+                <span className="font-semibold">Email:</span>{" "}
+                atelier@paulbotescu.ro
+              </p>
+              <p>
+                <span className="font-semibold">WhatsApp:</span> 07xx xxx xxx
+              </p>
+              <p>
+                <span className="font-semibold">Atelier:</span> Romania, zona
+                Maramures
+              </p>
+            </div>
+
+            <a
+              href="mailto:atelier@paulbotescu.ro"
+              className="mt-8 inline-block rounded-sm bg-[var(--accent-red)] px-6 py-3 text-sm font-medium text-[var(--background-soft)] transition hover:opacity-90"
+            >
+              Trimite solicitare comanda
+            </a>
+          </div>
+        </section>
       </main>
+
+      <footer className="border-t border-[var(--border-soft)] bg-[color:rgba(234,217,198,0.7)]">
+        <div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-8 md:flex-row md:items-center md:justify-between md:px-8">
+          <div>
+            <p className="font-heading text-2xl text-[var(--wood-dark)]">
+              Paul Botescu
+            </p>
+            <p className="text-sm text-[var(--text-main)]/80">
+              Sculptura in lemn, lucrata manual cu respect pentru traditie.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-5 text-sm text-[var(--wood-dark)]">
+            <a href="#lucrari" className="hover:text-[var(--accent-red)]">
+              Lucrari
+            </a>
+            <a href="#despre" className="hover:text-[var(--accent-red)]">
+              Despre
+            </a>
+            <a href="#proces" className="hover:text-[var(--accent-red)]">
+              Proces
+            </a>
+            <a href="#contact" className="hover:text-[var(--accent-red)]">
+              Contact
+            </a>
+          </div>
+        </div>
+        <p className="pb-6 text-center text-xs text-[var(--text-main)]/70">
+          © {new Date().getFullYear()} Atelier Paul Botescu. Toate drepturile
+          rezervate.
+        </p>
+      </footer>
     </div>
   );
 }
