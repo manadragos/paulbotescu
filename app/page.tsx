@@ -2,149 +2,130 @@ import Image from "next/image";
 
 const works = [
   {
-    category: "Porti sculptate",
-    title: "Poarta maramureseana cu motiv solar",
-    description:
-      "Stejar masiv sculptat manual, cu ritm traditional si detalii atent proportionate.",
+    category: "Triptice",
+    title: "Triptice",
+    description: "-",
     image: "/images/album-triptice.jpg",
-    imageAlt:
-      "Lucrare sculptata in lemn — compozitie cu motive traditionale, detaliu atelier.",
+    imageAlt: "Triptice",
   },
   {
     category: "Troite",
     title: "Troita de hotar",
-    description:
-      "Lucrare de exterior, gandita pentru rezistenta in timp si expresie simbolica limpede.",
+    description: "-",
     image: "/images/album-troite.jpg",
-    imageAlt: "Troita sculptata in lemn, lucrare de atelier.",
+    imageAlt: "Troita de hotar",
   },
   {
-    category: "Sculptura decorativa",
-    title: "Stalp ornamental pentru prispa",
-    description:
-      "Piesa cu volum vertical, inspirata din motive vechi romanesti reinterpretate sobru.",
+    category: "Cruce model Sapanta",
+    title: "Cruce model Sapanta",
+    description: "-",
     image: "/images/album-cruce-model-sapanta.jpg",
-    imageAlt: "Cruce sculptata in lemn, model inspirat din traditie.",
+    imageAlt: "Cruce model Sapanta",
   },
   {
-    category: "Sculptura bisericeasca",
-    title: "Usi de altar",
-    description:
-      "Compozitie sculptata cu accent pe echilibru, linie si respect pentru traditie.",
+    category: "Axionita Prodromita",
+    title: "Axionita Prodromita",
+    description: "-",
     image: "/images/album-axionita-prodromita.jpg",
-    imageAlt: "Sculptura bisericeasca in lemn — icoana Axionita Prodromita.",
+    imageAlt: "Axionita Prodromita",
   },
   {
     category: "Icoane",
-    title: "Icoane sculptate in lemn masiv",
-    description:
-      "Lucrari liturgice lucrate manual, cu respect pentru canoane si pentru expresia duhovniceasca a chipului.",
+    title: "Icoane",
+    description: "-",
     image: "/images/album-icoane.jpg",
-    imageAlt: "Icoane sculptate in lemn, detaliu atelier.",
+    imageAlt: "Icoane",
   },
   {
     category: "Icoane pe usi",
-    title: "Usi bisericesti cu icoane in relief",
-    description:
-      "Compozitii integrate in panouri de usa, gandite pentru spatiul liturgic si pentru citire clara a subiectului.",
+    title: "Icoane pe usi",
+    description: "-",
     image: "/images/album-icoane-pe-usi.jpg",
-    imageAlt: "Usi sculptate cu icoane, lucrare bisericeasca.",
+    imageAlt: "Icoane pe usi",
   },
   {
     category: "Iconostas",
-    title: "Iconostas — structura si registre sculptate",
-    description:
-      "Ansamblu coordonat, cu proportii stabile si ritm al registrelor, potrivit randuielii bisericii.",
+    title: "Iconostas",
+    description: "-",
     image: "/images/album-iconostas.jpg",
-    imageAlt: "Iconostas sculptat in lemn.",
+    imageAlt: "Iconostas",
   },
   {
     category: "Ingeri",
-    title: "Ingeri sculptati — aripi, linii si lumina",
-    description:
-      "Piese contemplative, lucrate cu atentie la volum si la gest, pentru spatiu de rugaciune sau casa.",
+    title: "Ingeri",
+    description: "-",
     image: "/images/album-ingeri.jpg",
-    imageAlt: "Sculptura in lemn — inger, detaliu lucrare.",
+    imageAlt: "Ingeri",
   },
   {
-    category: "Lucrari liturgice",
+    category: "Racla Petru Voda",
     title: "Racla Petru Voda",
-    description:
-      "Racla sculptata in lemn masiv, gandita cu sobrietate liturgica si finisaj potrivit spatiului de inchinare.",
+    description: "-",
     image: "/images/album-racla-petru-voda.jpg",
-    imageAlt: "Racla sculptata in lemn — Manastirea Petru Voda.",
+    imageAlt: "Racla Petru Voda",
   },
   {
-    category: "Lucrari liturgice",
+    category: "Strana arhiereasca",
     title: "Strana arhiereasca",
-    description:
-      "Piesa pentru slujirea la altar, lucrata manual, cu proportii clare si detalii respectand randuiala bisericeasca.",
+    description: "-",
     image: "/images/album-strana-arhiereasca.jpg",
-    imageAlt: "Strana arhiereasca sculptata in lemn.",
+    imageAlt: "Strana arhiereasca",
   },
   {
-    category: "Lucrari liturgice",
+    category: "Racla Danion",
     title: "Racla Danion",
-    description:
-      "Racla sculptata in lemn, cu linii clare si finisaj potrivit cinstirii moastelor.",
+    description: "-",
     image: "/images/album-racla-danion.jpg",
-    imageAlt: "Racla sculptata in lemn — Danion.",
+    imageAlt: "Racla Danion",
   },
   {
-    category: "Lucrari liturgice",
+    category: "Racla",
     title: "Racla",
-    description:
-      "Racla din lemn masiv, lucrata manual: volum echilibrat, detalii curate si rost liturgic limpede.",
+    description: "-",
     image: "/images/album-racla.jpg",
-    imageAlt: "Racla sculptata in lemn.",
+    imageAlt: "Racla",
   },
   {
-    category: "Sculptura bisericeasca",
+    category: "Poliptice",
     title: "Poliptice",
-    description:
-      "Poliptic in lemn: mai multe panouri unite intr-o compozitie coerenta, pentru spatiu de cult sau cinstire.",
+    description: "-",
     image: "/images/album-poliptice.jpg",
-    imageAlt: "Poliptice sculptate in lemn, mai multe registre.",
+    imageAlt: "Poliptice",
   },
   {
-    category: "Obiecte liturgice",
+    category: "Matrita lumanare",
     title: "Matrita lumanare",
-    description:
-      "Matrita pentru lumanari, sculptata manual in lemn: forma stabila, finisaj curat, potrivita uzului in biserica sau acasa.",
+    description: "-",
     image: "/images/album-matrita-lumanare.jpg",
-    imageAlt: "Matrita pentru lumanari, sculptata in lemn.",
+    imageAlt: "Matrita lumanare",
   },
   {
-    category: "Decor de gradina",
+    category: "Sah de gradina",
     title: "Sah de gradina",
-    description:
-      "Set de sah sculptat in lemn, gandit pentru exterior: piese solide, tabla potrivita aerului liber si uzului indelungat.",
+    description: "-",
     image: "/images/album-sah-gradina.jpg",
-    imageAlt: "Set de sah sculptat in lemn pentru gradina.",
+    imageAlt: "Sah de gradina",
   },
   {
-    category: "Sah in lemn",
+    category: "Sah dacii si romanii",
     title: "Sah dacii si romanii",
-    description:
-      "Piese modelate pe doua tabere istorice, lucrate manual: jocul devine si poveste, si piesa de atelier.",
+    description: "-",
     image: "/images/album-sah-dacii-romanii.jpg",
-    imageAlt: "Sah sculptat in lemn — tematica daci si romani.",
+    imageAlt: "Sah dacii si romanii",
   },
   {
-    category: "Sculptura decorativa",
+    category: "Suport sticla Dac",
     title: "Suport sticla Dac",
-    description:
-      "Suport pentru sticla, sculptat in lemn cu motiv dacic: stabil, functional si potrivit mesei sau bufetului.",
+    description: "-",
     image: "/images/album-suport-sticla-dac.jpg",
-    imageAlt: "Suport pentru sticla sculptat in lemn, motiv dacic.",
+    imageAlt: "Suport sticla Dac",
   },
   {
-    category: "Rame sculptate",
+    category: "Rame",
     title: "Rame",
-    description:
-      "Rame din lemn masiv, finisaj curat: pentru tablouri, oglinzi sau icoane, la dimensiune ceruta.",
+    description: "-",
     image: "/images/album-rame.jpg",
-    imageAlt: "Rame sculptate in lemn.",
+    imageAlt: "Rame",
   },
 ];
 
@@ -407,19 +388,19 @@ export default function Home() {
               </p>
               <p>
                 <span className="font-semibold">Email:</span>{" "}
-                atelier@paulbotescu.ro
+                paulbotescu@yahoo.com
               </p>
               <p>
                 <span className="font-semibold">WhatsApp:</span> 07xx xxx xxx
               </p>
               <p>
-                <span className="font-semibold">Atelier:</span> Romania, zona
-                Maramures
+                <span className="font-semibold">Atelier:</span> Romania,
+                Bucuresti
               </p>
             </div>
 
             <a
-              href="mailto:atelier@paulbotescu.ro"
+              href="mailto:paulbotescu@yahoo.com"
               className="mt-8 inline-block rounded-sm bg-[var(--accent-red)] px-6 py-3 text-sm font-medium text-[var(--background-soft)] transition hover:opacity-90"
             >
               Trimite solicitare comanda
