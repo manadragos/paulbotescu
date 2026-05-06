@@ -1555,7 +1555,7 @@ export default function Home() {
               onClick={() => setIsCvOpen(false)}
               aria-label="Inchide CV"
             />
-            <div className="relative z-10 flex w-[96vw] max-w-[1520px] flex-col overflow-y-auto rounded-sm border border-[var(--border-soft)] bg-[var(--background-soft)] px-5 pb-6 pt-5 shadow-[0_24px_52px_rgba(22,14,9,0.5)] sm:max-h-[92svh] sm:px-7 sm:pt-7 md:px-10 md:pt-10">
+            <div className="relative z-10 flex w-[min(100%,96vw)] max-w-[1520px] flex-col overflow-y-auto rounded-sm border border-[var(--border-soft)] bg-[var(--background-soft)] px-3 pb-6 pt-4 shadow-[0_24px_52px_rgba(22,14,9,0.5)] sm:max-h-[92svh] sm:px-5 sm:pt-5 md:px-7 md:pt-7 lg:px-10 lg:pt-10">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-[var(--accent-red)]">
@@ -1574,8 +1574,8 @@ export default function Home() {
                 </button>
               </div>
 
-              <div className="mt-6 grid gap-5 md:grid-cols-[minmax(0,1fr)_640px] md:items-start">
-                <div className="rounded-sm border border-[var(--border-soft)] bg-[color:rgba(255,252,246,0.6)] p-4 sm:p-6">
+              <div className="mt-6 grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_640px] lg:items-start">
+                <div className="min-w-0 w-full rounded-sm border border-[var(--border-soft)] bg-[color:rgba(255,252,246,0.6)] p-3 sm:p-5 md:p-6">
                   {isCvLoading ? (
                     <p className="text-sm text-[var(--wood-mid)]">
                       Se incarca CV-ul...
@@ -1583,48 +1583,51 @@ export default function Home() {
                   ) : cvError ? (
                     <p className="text-sm text-[var(--accent-red)]">{cvError}</p>
                   ) : (
-                    <div className="text-[var(--text-main)]/90">
+                    <div className="min-w-0 max-w-full break-words text-[var(--text-main)]/90">
                       <ReactMarkdown
                         rehypePlugins={[rehypeRaw]}
                         components={{
                           h1: ({ ...props }) => (
                             <h1
-                              className="font-heading mb-4 text-3xl text-[var(--wood-dark)]"
+                              className="font-heading mb-3 text-[length:clamp(1.375rem,0.92rem+1.9vw,1.875rem)] text-[var(--wood-dark)] sm:mb-4"
                               {...props}
                             />
                           ),
                           h2: ({ ...props }) => (
                             <h2
-                              className="mt-7 mb-3 text-2xl font-semibold text-[var(--wood-dark)]"
+                              className="mt-5 mb-2 text-[length:clamp(1.125rem,0.82rem+1.15vw,1.5rem)] font-semibold text-[var(--wood-dark)] sm:mt-7 sm:mb-3"
                               {...props}
                             />
                           ),
                           h3: ({ ...props }) => (
                             <h3
-                              className="mt-5 mb-2 text-xl font-semibold text-[var(--wood-dark)]"
+                              className="mt-4 mb-2 text-[length:clamp(1rem,0.78rem+0.85vw,1.25rem)] font-semibold text-[var(--wood-dark)] sm:mt-5"
                               {...props}
                             />
                           ),
                           p: ({ ...props }) => (
                             <p
-                              className="mb-2 text-[1.03rem] leading-8"
+                              className="mb-2 text-[length:clamp(0.8125rem,0.74rem+0.55vw,1.02875rem)] leading-[1.55] lg:leading-8"
                               {...props}
                             />
                           ),
                           ul: ({ ...props }) => (
                             <ul
-                              className="mb-4 list-disc space-y-1 pl-6"
+                              className="mb-4 list-disc space-y-1 pl-4 sm:pl-6"
                               {...props}
                             />
                           ),
                           ol: ({ ...props }) => (
                             <ol
-                              className="mb-4 list-decimal space-y-1 pl-6"
+                              className="mb-4 list-decimal space-y-1 pl-4 sm:pl-6"
                               {...props}
                             />
                           ),
                           li: ({ ...props }) => (
-                            <li className="leading-7" {...props} />
+                            <li
+                              className="text-[length:clamp(0.8125rem,0.74rem+0.55vw,1.02875rem)] leading-[1.45] lg:leading-7"
+                              {...props}
+                            />
                           ),
                           strong: ({ ...props }) => (
                             <strong
@@ -1640,18 +1643,34 @@ export default function Home() {
                   )}
                 </div>
 
-                <div className="overflow-hidden rounded-sm border border-[var(--border-soft)] bg-[color:rgba(255,252,246,0.6)] p-2">
-                  <iframe
-                    src="https://www.youtube.com/embed/_E0hffH4dUA"
-                    width="100%"
-                    height="540"
-                    style={{ border: "none", overflow: "hidden" }}
-                    scrolling="no"
-                    frameBorder="0"
-                    allowFullScreen
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    className="h-[540px] w-full"
-                  />
+                <div className="order-2 flex min-w-0 w-full flex-col gap-4 lg:order-none">
+                  <div className="overflow-hidden rounded-sm border border-[var(--border-soft)] bg-[color:rgba(255,252,246,0.6)] p-2">
+                    <iframe
+                      src="https://www.youtube.com/embed/_E0hffH4dUA"
+                      width="100%"
+                      height={540}
+                      style={{ border: "none", overflow: "hidden" }}
+                      scrolling="no"
+                      frameBorder="0"
+                      allowFullScreen
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      className="aspect-video w-full lg:aspect-auto lg:h-[540px]"
+                    />
+                  </div>
+                  <div className="overflow-hidden rounded-sm border border-[var(--border-soft)] bg-[color:rgba(255,252,246,0.6)] px-2 pt-2 pb-0">
+                    <iframe
+                      src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent("https://www.facebook.com/trinitastv/videos/1114605440405032/")}&show_text=false&t=0&width=620`}
+                      width="100%"
+                      height={408}
+                      style={{ border: "none", overflow: "hidden" }}
+                      scrolling="no"
+                      frameBorder="0"
+                      allowFullScreen
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                      className="block aspect-[620/408] w-full lg:aspect-auto lg:h-[408px]"
+                      title="Restaurarea catapetesmei brâncovenești — Trinitas TV"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
