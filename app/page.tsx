@@ -185,6 +185,110 @@ const icoaneAlbumImages: AlbumImage[] = [
   },
 ];
 
+const iconostasAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc: "/images/iconostas/thumbnail_iconostas1.jpg",
+    fullSrc: "/images/iconostas/iconostas1.jpg",
+    alt: "Iconostas imagine 1",
+  },
+  {
+    thumbnailSrc: "/images/iconostas/thumbnail_iconostas2.jpg",
+    fullSrc: "/images/iconostas/iconostas2.jpg",
+    alt: "Iconostas imagine 2",
+  },
+  {
+    thumbnailSrc: "/images/iconostas/thumbnail_iconostas3.jpg",
+    fullSrc: "/images/iconostas/iconostas3.jpg",
+    alt: "Iconostas imagine 3",
+  },
+];
+
+const icoanePeUsiAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc: "/images/icoane pe usi/thumbnail_icoanepeusi1.jpg",
+    fullSrc: "/images/icoane pe usi/icoanepeusi1.jpg",
+    alt: "Icoane pe usi imagine 1",
+  },
+  {
+    thumbnailSrc: "/images/icoane pe usi/thumbnail_icoanepeusi2.jpg",
+    fullSrc: "/images/icoane pe usi/icoanepeusi2.jpg",
+    alt: "Icoane pe usi imagine 2",
+  },
+  {
+    thumbnailSrc: "/images/icoane pe usi/thumbnail_icoanepeusi3.jpg",
+    fullSrc: "/images/icoane pe usi/icoanepeusi3.jpg",
+    alt: "Icoane pe usi imagine 3",
+  },
+  {
+    thumbnailSrc: "/images/icoane pe usi/thumbnail_icoanepeusi4.jpg",
+    fullSrc: "/images/icoane pe usi/icoanepeusi4.jpg",
+    alt: "Icoane pe usi imagine 4",
+  },
+  {
+    thumbnailSrc: "/images/icoane pe usi/thumbnail_icoanepeusi5.jpg",
+    fullSrc: "/images/icoane pe usi/icoanepeusi5.jpg",
+    alt: "Icoane pe usi imagine 5",
+  },
+  {
+    thumbnailSrc: "/images/icoane pe usi/thumbnail_icoanepeusi6.jpg",
+    fullSrc: "/images/icoane pe usi/icoanepeusi6.jpg",
+    alt: "Icoane pe usi imagine 6",
+  },
+];
+
+const ingeriAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc: "/images/ingeri/thumbnail_ingeri1.jpg",
+    fullSrc: "/images/ingeri/ingeri1.jpg",
+    alt: "Ingeri imagine 1",
+  },
+  {
+    thumbnailSrc: "/images/ingeri/thumbnail_ingeri2.jpg",
+    fullSrc: "/images/ingeri/ingeri2.jpg",
+    alt: "Ingeri imagine 2",
+  },
+  {
+    thumbnailSrc: "/images/ingeri/thumbnail_ingeri3.jpg",
+    fullSrc: "/images/ingeri/ingeri3.jpg",
+    alt: "Ingeri imagine 3",
+  },
+  {
+    thumbnailSrc: "/images/ingeri/thumbnail_ingeri4.jpg",
+    fullSrc: "/images/ingeri/ingeri4.jpg",
+    alt: "Ingeri imagine 4",
+  },
+  {
+    thumbnailSrc: "/images/ingeri/thumbnail_ingeri5.jpg",
+    fullSrc: "/images/ingeri/ingeri5.jpg",
+    alt: "Ingeri imagine 5",
+  },
+  {
+    thumbnailSrc: "/images/ingeri/thumbnail_ingeri6.jpg",
+    fullSrc: "/images/ingeri/ingeri6.jpg",
+    alt: "Ingeri imagine 6",
+  },
+  {
+    thumbnailSrc: "/images/ingeri/thumbnail_ingeri7.jpg",
+    fullSrc: "/images/ingeri/ingeri7.jpg",
+    alt: "Ingeri imagine 7",
+  },
+  {
+    thumbnailSrc: "/images/ingeri/thumbnail_ingeri8.jpg",
+    fullSrc: "/images/ingeri/ingeri8.jpg",
+    alt: "Ingeri imagine 8",
+  },
+  {
+    thumbnailSrc: "/images/ingeri/thumbnail_ingeri9.jpg",
+    fullSrc: "/images/ingeri/ingeri9.jpg",
+    alt: "Ingeri imagine 9",
+  },
+  {
+    thumbnailSrc: "/images/ingeri/thumbnail_ingeri10.jpg",
+    fullSrc: "/images/ingeri/ingeri10.jpg",
+    alt: "Ingeri imagine 10",
+  },
+];
+
 const works: Work[] = [
   {
     category: "Triptice",
@@ -232,6 +336,7 @@ const works: Work[] = [
     description: "-",
     image: "/images/album-icoane-pe-usi.jpg",
     imageAlt: "Icoane pe usi",
+    albumImages: icoanePeUsiAlbumImages,
   },
   {
     category: "Iconostas",
@@ -239,6 +344,7 @@ const works: Work[] = [
     description: "-",
     image: "/images/album-iconostas.jpg",
     imageAlt: "Iconostas",
+    albumImages: iconostasAlbumImages,
   },
   {
     category: "Ingeri",
@@ -246,6 +352,7 @@ const works: Work[] = [
     description: "-",
     image: "/images/album-ingeri.jpg",
     imageAlt: "Ingeri",
+    albumImages: ingeriAlbumImages,
   },
   {
     category: "Racla Petru Voda",
@@ -768,6 +875,40 @@ export default function Home() {
                 className="absolute right-0 top-0 z-20 rounded-sm border border-[var(--border-soft)] bg-[var(--background-soft)] px-3 py-2 text-xs uppercase tracking-[0.14em] text-[var(--wood-dark)] transition hover:bg-[var(--panel)]"
               >
                 Inchide
+              </button>
+              <button
+                type="button"
+                onClick={goToPrevPhoto}
+                className="absolute left-2 top-1/2 z-20 flex h-14 w-12 -translate-y-1/2 items-center justify-center text-[color:rgba(248,239,223,0.95)] transition hover:text-[var(--accent-gold)] hover:drop-shadow-[0_0_14px_rgba(214,166,74,0.9)] md:left-5"
+                aria-label="Imagine anterioara fullscreen"
+              >
+                <svg viewBox="0 0 24 24" className="h-10 w-10" aria-hidden="true">
+                  <path
+                    d="M14.5 5.5L8 12l6.5 6.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              <button
+                type="button"
+                onClick={goToNextPhoto}
+                className="absolute right-2 top-1/2 z-20 flex h-14 w-12 -translate-y-1/2 items-center justify-center text-[color:rgba(248,239,223,0.95)] transition hover:text-[var(--accent-gold)] hover:drop-shadow-[0_0_14px_rgba(214,166,74,0.9)] md:right-5"
+                aria-label="Imagine urmatoare fullscreen"
+              >
+                <svg viewBox="0 0 24 24" className="h-10 w-10" aria-hidden="true">
+                  <path
+                    d="M9.5 5.5L16 12l-6.5 6.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </button>
               <Image
                 src={activeAlbumImages[selectedPhotoIndex]?.fullSrc}
