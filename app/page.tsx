@@ -468,11 +468,12 @@ export default function Home() {
                     title="Dalta"
                   />
                 </div>
-                <div className="mx-auto block w-[78vw] max-w-[360px] md:hidden">
+                <div className="mx-auto block w-[74vw] max-w-[332px] md:hidden">
+                  <div className="relative">
                   <button
                     type="button"
                     onClick={() => maximizePhoto(selectedPhotoIndex)}
-                    className="w-full rounded-sm border border-[var(--accent-red)]/70 shadow-[0_0_0_2px_rgba(149,48,28,0.16)] transition hover:border-[var(--accent-red)]"
+                    className="relative w-full rounded-sm border border-[var(--accent-red)]/70 shadow-[0_0_0_2px_rgba(149,48,28,0.16)] transition hover:border-[var(--accent-red)]"
                     aria-label={`Alege imaginea ${selectedPhotoIndex + 1} din albumul ${selectedWork.title}`}
                     style={{ cursor: "url('/images/chisel_cursor.png') 5 3, pointer" }}
                   >
@@ -486,6 +487,23 @@ export default function Home() {
                       sizes="(max-width: 768px) 75vw, 25vw"
                     />
                   </button>
+                  <button
+                    type="button"
+                    onClick={goToPrevPhoto}
+                    className="absolute -left-[38px] top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[color:rgba(244,237,228,0.88)] text-lg font-semibold text-[var(--wood-dark)] shadow-[0_4px_10px_rgba(74,46,31,0.16)]"
+                    aria-label="Imagine anterioara"
+                  >
+                    &lt;
+                  </button>
+                  <button
+                    type="button"
+                    onClick={goToNextPhoto}
+                    className="absolute -right-[38px] top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[color:rgba(244,237,228,0.88)] text-lg font-semibold text-[var(--wood-dark)] shadow-[0_4px_10px_rgba(74,46,31,0.16)]"
+                    aria-label="Imagine urmatoare"
+                  >
+                    &gt;
+                  </button>
+                  </div>
                 </div>
 
                 <div className="hidden items-center justify-center gap-5 md:flex">
