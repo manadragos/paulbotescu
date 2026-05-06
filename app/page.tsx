@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import rehypeRaw from "rehype-raw";
+import ReactMarkdown from "react-markdown";
+import { useEffect, useRef, useState } from "react";
 
 type AlbumImage = {
   thumbnailSrc: string;
@@ -66,17 +68,20 @@ const troitaDeHotarAlbumImages: AlbumImage[] = [
 
 const cruceModelSapantaAlbumImages: AlbumImage[] = [
   {
-    thumbnailSrc: "/images/cruce model sapanta/thumbnail_crucemodelsapanta1.jpg",
+    thumbnailSrc:
+      "/images/cruce model sapanta/thumbnail_crucemodelsapanta1.jpg",
     fullSrc: "/images/cruce model sapanta/crucemodelsapanta1.jpg",
     alt: "Cruce model Sapanta imagine 1",
   },
   {
-    thumbnailSrc: "/images/cruce model sapanta/thumbnail_crucemodelsapanta2.jpg",
+    thumbnailSrc:
+      "/images/cruce model sapanta/thumbnail_crucemodelsapanta2.jpg",
     fullSrc: "/images/cruce model sapanta/crucemodelsapanta2.jpg",
     alt: "Cruce model Sapanta imagine 2",
   },
   {
-    thumbnailSrc: "/images/cruce model sapanta/thumbnail_crucemodelsapanta3.jpg",
+    thumbnailSrc:
+      "/images/cruce model sapanta/thumbnail_crucemodelsapanta3.jpg",
     fullSrc: "/images/cruce model sapanta/crucemodelsapanta3.jpg",
     alt: "Cruce model Sapanta imagine 3",
   },
@@ -334,56 +339,47 @@ const raclaPetruVodaAlbumImages: AlbumImage[] = [
 
 const stranaArhiereascaAlbumImages: AlbumImage[] = [
   {
-    thumbnailSrc:
-      "/images/strana arhiereasca/thumbnail_stranaarhiereasca1.jpg",
+    thumbnailSrc: "/images/strana arhiereasca/thumbnail_stranaarhiereasca1.jpg",
     fullSrc: "/images/strana arhiereasca/stranaarhiereasca1.jpg",
     alt: "Strana arhiereasca imagine 1",
   },
   {
-    thumbnailSrc:
-      "/images/strana arhiereasca/thumbnail_stranaarhiereasca2.jpg",
+    thumbnailSrc: "/images/strana arhiereasca/thumbnail_stranaarhiereasca2.jpg",
     fullSrc: "/images/strana arhiereasca/stranaarhiereasca2.jpg",
     alt: "Strana arhiereasca imagine 2",
   },
   {
-    thumbnailSrc:
-      "/images/strana arhiereasca/thumbnail_stranaarhiereasca3.jpg",
+    thumbnailSrc: "/images/strana arhiereasca/thumbnail_stranaarhiereasca3.jpg",
     fullSrc: "/images/strana arhiereasca/stranaarhiereasca3.jpg",
     alt: "Strana arhiereasca imagine 3",
   },
   {
-    thumbnailSrc:
-      "/images/strana arhiereasca/thumbnail_stranaarhiereasca4.jpg",
+    thumbnailSrc: "/images/strana arhiereasca/thumbnail_stranaarhiereasca4.jpg",
     fullSrc: "/images/strana arhiereasca/stranaarhiereasca4.jpg",
     alt: "Strana arhiereasca imagine 4",
   },
   {
-    thumbnailSrc:
-      "/images/strana arhiereasca/thumbnail_stranaarhiereasca5.jpg",
+    thumbnailSrc: "/images/strana arhiereasca/thumbnail_stranaarhiereasca5.jpg",
     fullSrc: "/images/strana arhiereasca/stranaarhiereasca5.jpg",
     alt: "Strana arhiereasca imagine 5",
   },
   {
-    thumbnailSrc:
-      "/images/strana arhiereasca/thumbnail_stranaarhiereasca6.jpg",
+    thumbnailSrc: "/images/strana arhiereasca/thumbnail_stranaarhiereasca6.jpg",
     fullSrc: "/images/strana arhiereasca/stranaarhiereasca6.jpg",
     alt: "Strana arhiereasca imagine 6",
   },
   {
-    thumbnailSrc:
-      "/images/strana arhiereasca/thumbnail_stranaarhiereasca7.jpg",
+    thumbnailSrc: "/images/strana arhiereasca/thumbnail_stranaarhiereasca7.jpg",
     fullSrc: "/images/strana arhiereasca/stranaarhiereasca7.jpg",
     alt: "Strana arhiereasca imagine 7",
   },
   {
-    thumbnailSrc:
-      "/images/strana arhiereasca/thumbnail_stranaarhiereasca8.jpg",
+    thumbnailSrc: "/images/strana arhiereasca/thumbnail_stranaarhiereasca8.jpg",
     fullSrc: "/images/strana arhiereasca/stranaarhiereasca8.jpg",
     alt: "Strana arhiereasca imagine 8",
   },
   {
-    thumbnailSrc:
-      "/images/strana arhiereasca/thumbnail_stranaarhiereasca9.jpg",
+    thumbnailSrc: "/images/strana arhiereasca/thumbnail_stranaarhiereasca9.jpg",
     fullSrc: "/images/strana arhiereasca/stranaarhiereasca9.jpg",
     alt: "Strana arhiereasca imagine 9",
   },
@@ -835,6 +831,10 @@ export default function Home() {
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(0);
   const [carouselStartIndex, setCarouselStartIndex] = useState(0);
   const [isFullscreenOpen, setIsFullscreenOpen] = useState(false);
+  const [isCvOpen, setIsCvOpen] = useState(false);
+  const [cvContent, setCvContent] = useState("");
+  const [isCvLoading, setIsCvLoading] = useState(false);
+  const [cvError, setCvError] = useState("");
   const touchStartXRef = useRef<number | null>(null);
   const fallbackAlbumImages: AlbumImage[] = Array.from({ length: 4 }).map(
     (_, index) => ({
@@ -904,6 +904,32 @@ export default function Home() {
   const visibleDesktopIndexes = Array.from({ length: desktopVisibleCount }).map(
     (_, offset) => (carouselStartIndex + offset) % albumImageCount,
   );
+
+  useEffect(() => {
+    if (!isCvOpen || cvContent || isCvLoading) return;
+
+    const loadCv = async () => {
+      setIsCvLoading(true);
+      setCvError("");
+      try {
+        const response = await fetch("/cv.md");
+        if (!response.ok) {
+          throw new Error("Nu am putut incarca CV-ul.");
+        }
+        setCvContent(await response.text());
+      } catch (error) {
+        const message =
+          error instanceof Error
+            ? error.message
+            : "A aparut o eroare la incarcarea CV-ului.";
+        setCvError(message);
+      } finally {
+        setIsCvLoading(false);
+      }
+    };
+
+    void loadCv();
+  }, [isCvOpen, cvContent, isCvLoading]);
 
   return (
     <div className="grain-bg min-h-screen">
@@ -999,7 +1025,8 @@ export default function Home() {
                   className="group block w-full text-left"
                   aria-label={`Deschide albumul ${work.title}`}
                   style={{
-                    cursor: "url('/images/chisel_cursor_large.png') 7 4, pointer",
+                    cursor:
+                      "url('/images/chisel_cursor_large.png') 7 4, pointer",
                   }}
                 >
                   <div
@@ -1079,59 +1106,70 @@ export default function Home() {
                 </div>
                 <div className="mx-auto block w-[74vw] max-w-[332px] md:hidden">
                   <div className="relative">
-                  <button
-                    type="button"
-                    onClick={() => maximizePhoto(selectedPhotoIndex)}
-                    className="relative w-full rounded-sm border border-[var(--accent-red)]/70 shadow-[0_0_0_2px_rgba(149,48,28,0.16)] transition hover:border-[var(--accent-red)]"
-                    aria-label={`Alege imaginea ${selectedPhotoIndex + 1} din albumul ${selectedWork.title}`}
-                    style={{
-                      cursor: "url('/images/chisel_cursor_large.png') 7 4, pointer",
-                    }}
-                  >
-                    <FramedImage
-                      src={activeAlbumImages[selectedPhotoIndex]?.thumbnailSrc}
-                      alt={
-                        activeAlbumImages[selectedPhotoIndex]?.alt ??
-                        `${selectedWork.title} - thumbnail ${selectedPhotoIndex + 1}`
-                      }
-                      className="aspect-[4/3] w-full"
-                      sizes="(max-width: 768px) 75vw, 25vw"
-                    />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={goToPrevPhoto}
-                    className="absolute -left-[38px] top-1/2 flex h-10 w-8 -translate-y-1/2 items-center justify-center text-[var(--wood-mid)] transition hover:text-[var(--accent-red)] hover:drop-shadow-[0_0_11px_rgba(214,166,74,0.72)]"
-                    aria-label="Imagine anterioara"
-                  >
-                    <svg viewBox="0 0 24 24" className="h-7 w-7" aria-hidden="true">
-                      <path
-                        d="M14.5 5.5L8 12l6.5 6.5"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                    <button
+                      type="button"
+                      onClick={() => maximizePhoto(selectedPhotoIndex)}
+                      className="relative w-full rounded-sm border border-[var(--accent-red)]/70 shadow-[0_0_0_2px_rgba(149,48,28,0.16)] transition hover:border-[var(--accent-red)]"
+                      aria-label={`Alege imaginea ${selectedPhotoIndex + 1} din albumul ${selectedWork.title}`}
+                      style={{
+                        cursor:
+                          "url('/images/chisel_cursor_large.png') 7 4, pointer",
+                      }}
+                    >
+                      <FramedImage
+                        src={
+                          activeAlbumImages[selectedPhotoIndex]?.thumbnailSrc
+                        }
+                        alt={
+                          activeAlbumImages[selectedPhotoIndex]?.alt ??
+                          `${selectedWork.title} - thumbnail ${selectedPhotoIndex + 1}`
+                        }
+                        className="aspect-[4/3] w-full"
+                        sizes="(max-width: 768px) 75vw, 25vw"
                       />
-                    </svg>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={goToNextPhoto}
-                    className="absolute -right-[38px] top-1/2 flex h-10 w-8 -translate-y-1/2 items-center justify-center text-[var(--wood-mid)] transition hover:text-[var(--accent-red)] hover:drop-shadow-[0_0_11px_rgba(214,166,74,0.72)]"
-                    aria-label="Imagine urmatoare"
-                  >
-                    <svg viewBox="0 0 24 24" className="h-7 w-7" aria-hidden="true">
-                      <path
-                        d="M9.5 5.5L16 12l-6.5 6.5"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={goToPrevPhoto}
+                      className="absolute -left-[38px] top-1/2 flex h-10 w-8 -translate-y-1/2 items-center justify-center text-[var(--wood-mid)] transition hover:text-[var(--accent-red)] hover:drop-shadow-[0_0_11px_rgba(214,166,74,0.72)]"
+                      aria-label="Imagine anterioara"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        className="h-7 w-7"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M14.5 5.5L8 12l6.5 6.5"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={goToNextPhoto}
+                      className="absolute -right-[38px] top-1/2 flex h-10 w-8 -translate-y-1/2 items-center justify-center text-[var(--wood-mid)] transition hover:text-[var(--accent-red)] hover:drop-shadow-[0_0_11px_rgba(214,166,74,0.72)]"
+                      aria-label="Imagine urmatoare"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        className="h-7 w-7"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M9.5 5.5L16 12l-6.5 6.5"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
                   </div>
                 </div>
 
@@ -1142,7 +1180,11 @@ export default function Home() {
                     className="flex h-12 w-10 items-center justify-center text-[var(--wood-mid)] transition hover:text-[var(--accent-red)] hover:drop-shadow-[0_0_12px_rgba(214,166,74,0.72)]"
                     aria-label="Thumbnail anterior"
                   >
-                    <svg viewBox="0 0 24 24" className="h-8 w-8" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-8 w-8"
+                      aria-hidden="true"
+                    >
                       <path
                         d="M14.5 5.5L8 12l6.5 6.5"
                         fill="none"
@@ -1194,7 +1236,11 @@ export default function Home() {
                     className="flex h-12 w-10 items-center justify-center text-[var(--wood-mid)] transition hover:text-[var(--accent-red)] hover:drop-shadow-[0_0_12px_rgba(214,166,74,0.72)]"
                     aria-label="Thumbnail urmator"
                   >
-                    <svg viewBox="0 0 24 24" className="h-8 w-8" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-8 w-8"
+                      aria-hidden="true"
+                    >
                       <path
                         d="M9.5 5.5L16 12l-6.5 6.5"
                         fill="none"
@@ -1206,7 +1252,6 @@ export default function Home() {
                     </svg>
                   </button>
                 </div>
-
               </div>
             </div>
           </div>
@@ -1234,7 +1279,11 @@ export default function Home() {
                 className="absolute left-2 top-1/2 z-20 flex h-14 w-12 -translate-y-1/2 items-center justify-center text-[color:rgba(248,239,223,0.95)] transition hover:text-[var(--accent-gold)] hover:drop-shadow-[0_0_14px_rgba(214,166,74,0.9)] md:left-5"
                 aria-label="Imagine anterioara fullscreen"
               >
-                <svg viewBox="0 0 24 24" className="h-10 w-10" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-10 w-10"
+                  aria-hidden="true"
+                >
                   <path
                     d="M14.5 5.5L8 12l6.5 6.5"
                     fill="none"
@@ -1251,7 +1300,11 @@ export default function Home() {
                 className="absolute right-2 top-1/2 z-20 flex h-14 w-12 -translate-y-1/2 items-center justify-center text-[color:rgba(248,239,223,0.95)] transition hover:text-[var(--accent-gold)] hover:drop-shadow-[0_0_14px_rgba(214,166,74,0.9)] md:right-5"
                 aria-label="Imagine urmatoare fullscreen"
               >
-                <svg viewBox="0 0 24 24" className="h-10 w-10" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-10 w-10"
+                  aria-hidden="true"
+                >
                   <path
                     d="M9.5 5.5L16 12l-6.5 6.5"
                     fill="none"
@@ -1277,6 +1330,101 @@ export default function Home() {
           </div>
         )}
 
+        {isCvOpen && (
+          <div className="fixed inset-0 z-[65] flex items-center justify-center bg-[rgba(25,16,10,0.82)] p-4 sm:p-6 md:p-8">
+            <button
+              type="button"
+              className="absolute inset-0 h-full w-full cursor-default"
+              onClick={() => setIsCvOpen(false)}
+              aria-label="Inchide CV"
+            />
+            <div className="relative z-10 flex w-[96vw] max-w-5xl flex-col overflow-y-auto rounded-sm border border-[var(--border-soft)] bg-[var(--background-soft)] px-5 pb-6 pt-5 shadow-[0_24px_52px_rgba(22,14,9,0.5)] sm:max-h-[92svh] sm:px-7 sm:pt-7 md:px-10 md:pt-10">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-[var(--accent-red)]">
+                    Curriculum Vitae
+                  </p>
+                  <h3 className="font-heading mt-2 text-3xl text-[var(--wood-dark)] md:text-4xl">
+                    Paul Botescu
+                  </h3>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setIsCvOpen(false)}
+                  className="rounded-sm border border-[var(--wood-mid)] px-3 py-2 text-xs uppercase tracking-[0.14em] text-[var(--wood-dark)] transition hover:bg-[var(--panel)]"
+                >
+                  Inchide
+                </button>
+              </div>
+
+              <div className="mt-6 rounded-sm border border-[var(--border-soft)] bg-[color:rgba(255,252,246,0.6)] p-4 sm:p-6">
+                {isCvLoading ? (
+                  <p className="text-sm text-[var(--wood-mid)]">
+                    Se incarca CV-ul...
+                  </p>
+                ) : cvError ? (
+                  <p className="text-sm text-[var(--accent-red)]">{cvError}</p>
+                ) : (
+                  <div className="text-[var(--text-main)]/90">
+                    <ReactMarkdown
+                      rehypePlugins={[rehypeRaw]}
+                      components={{
+                        h1: ({ ...props }) => (
+                          <h1
+                            className="font-heading mb-4 text-3xl text-[var(--wood-dark)]"
+                            {...props}
+                          />
+                        ),
+                        h2: ({ ...props }) => (
+                          <h2
+                            className="mt-7 mb-3 text-2xl font-semibold text-[var(--wood-dark)]"
+                            {...props}
+                          />
+                        ),
+                        h3: ({ ...props }) => (
+                          <h3
+                            className="mt-5 mb-2 text-xl font-semibold text-[var(--wood-dark)]"
+                            {...props}
+                          />
+                        ),
+                        p: ({ ...props }) => (
+                          <p
+                            className="mb-2 text-[1.03rem] leading-8"
+                            {...props}
+                          />
+                        ),
+                        ul: ({ ...props }) => (
+                          <ul
+                            className="mb-4 list-disc space-y-1 pl-6"
+                            {...props}
+                          />
+                        ),
+                        ol: ({ ...props }) => (
+                          <ol
+                            className="mb-4 list-decimal space-y-1 pl-6"
+                            {...props}
+                          />
+                        ),
+                        li: ({ ...props }) => (
+                          <li className="leading-7" {...props} />
+                        ),
+                        strong: ({ ...props }) => (
+                          <strong
+                            className="font-semibold text-[var(--wood-dark)]"
+                            {...props}
+                          />
+                        ),
+                      }}
+                    >
+                      {cvContent}
+                    </ReactMarkdown>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
         <section
           id="despre"
           className="mx-auto grid max-w-6xl gap-10 px-5 py-18 md:grid-cols-12 md:px-8"
@@ -1289,7 +1437,14 @@ export default function Home() {
               Atelierul, locul unde timpul lucreaza impreuna cu mana
             </h2>
             <p className="mt-6 leading-8 text-[var(--text-main)]/90">
-              Paul Botescu este sculptor in lemn cu practica dedicata lucrarilor
+              <button
+                type="button"
+                onClick={() => setIsCvOpen(true)}
+                className="font-semibold text-[var(--accent-red)] underline decoration-[var(--accent-gold)] decoration-2 underline-offset-4 transition hover:text-[var(--wood-dark)]"
+              >
+                Paul Botescu
+              </button>{" "}
+              este sculptor in lemn cu practica dedicata lucrarilor
               traditionale. Fiecare piesa este lucrata manual, cu atentie pentru
               fibra, pentru simbol si pentru rostul pe care lucrarea il va avea.
             </p>
@@ -1305,12 +1460,27 @@ export default function Home() {
             </blockquote>
           </div>
           <div className="md:col-span-7 md:pt-8">
-            <FramedImage
-              src="/images/hero-facebook.jpg"
-              alt="Atelier Paul Botescu — detaliu lucrare sculptata in lemn"
-              className="h-[460px] w-full shadow-[0_16px_30px_rgba(74,46,31,0.18)]"
-              sizes="(max-width: 768px) 100vw, 58vw"
-            />
+            <button
+              type="button"
+              onClick={() => setIsCvOpen(true)}
+              className="group relative block w-full text-left"
+              aria-label="Deschide CV-ul lui Paul Botescu"
+              style={{
+                cursor: "url('/images/chisel_cursor_large.png') 7 4, pointer",
+              }}
+            >
+              <FramedImage
+                src="/images/hero-facebook.jpg"
+                alt="Atelier Paul Botescu — detaliu lucrare sculptata in lemn"
+                className="h-[460px] w-full shadow-[0_16px_30px_rgba(74,46,31,0.18)]"
+                sizes="(max-width: 768px) 100vw, 58vw"
+              />
+              <span className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-sm bg-[rgba(25,16,10,0.38)] opacity-0 transition duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+                <span className="font-heading text-3xl italic tracking-[0.04em] text-[var(--background-soft)] drop-shadow-[0_3px_10px_rgba(8,5,3,0.55)] md:text-4xl">
+                  Despre mine
+                </span>
+              </span>
+            </button>
           </div>
         </section>
 
@@ -1371,14 +1541,14 @@ export default function Home() {
 
             <div className="mt-8 grid gap-5 text-[var(--text-main)]/90 md:grid-cols-2">
               <p>
-                <span className="font-semibold">Telefon:</span> 07xx xxx xxx
+                <span className="font-semibold">Telefon:</span> 0722 686 328
               </p>
               <p>
                 <span className="font-semibold">Email:</span>{" "}
                 paulbotescu@yahoo.com
               </p>
               <p>
-                <span className="font-semibold">WhatsApp:</span> 07xx xxx xxx
+                <span className="font-semibold">WhatsApp:</span> 0722 686 328
               </p>
               <p>
                 <span className="font-semibold">Atelier:</span> Romania,
