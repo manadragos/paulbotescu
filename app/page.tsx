@@ -627,6 +627,146 @@ const rameAlbumImages: AlbumImage[] = [
   },
 ];
 
+const masaSculptataAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc: "/images/masa sculptata/thumbnail_masasculptata1.jpg",
+    fullSrc: "/images/masa sculptata/masasculptata1.jpg",
+    alt: "Masa sculptata imagine 1",
+  },
+  {
+    thumbnailSrc: "/images/masa sculptata/thumbnail_masasculptata2.jpg",
+    fullSrc: "/images/masa sculptata/masasculptata2.jpg",
+    alt: "Masa sculptata imagine 2",
+  },
+  {
+    thumbnailSrc: "/images/masa sculptata/thumbnail_masasculptata3.jpg",
+    fullSrc: "/images/masa sculptata/masasculptata3.jpg",
+    alt: "Masa sculptata imagine 3",
+  },
+];
+
+const frunzeAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc: "/images/frunze/thumbnail_frunze1.jpg",
+    fullSrc: "/images/frunze/frunze1.jpg",
+    alt: "Frunze imagine 1",
+  },
+  {
+    thumbnailSrc: "/images/frunze/thumbnail_frunze2.jpg",
+    fullSrc: "/images/frunze/frunze2.jpg",
+    alt: "Frunze imagine 2",
+  },
+];
+
+const cruciuliteCuSecreterAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc:
+      "/images/cruciulita cu secreter/thumbnail_cruciulitacusecreter1.jpg",
+    fullSrc: "/images/cruciulita cu secreter/cruciulitacusecreter1.jpg",
+    alt: "Cruciulite cu secreter imagine 1",
+  },
+  {
+    thumbnailSrc:
+      "/images/cruciulita cu secreter/thumbnail_cruciulitacusecreter2.jpg",
+    fullSrc: "/images/cruciulita cu secreter/cruciulitacusecreter2.jpg",
+    alt: "Cruciulite cu secreter imagine 2",
+  },
+  {
+    thumbnailSrc:
+      "/images/cruciulita cu secreter/thumbnail_cruciulitacusecreter3.jpg",
+    fullSrc: "/images/cruciulita cu secreter/cruciulitacusecreter3.jpg",
+    alt: "Cruciulite cu secreter imagine 3",
+  },
+  {
+    thumbnailSrc:
+      "/images/cruciulita cu secreter/thumbnail_cruciulitacusecreter4.jpg",
+    fullSrc: "/images/cruciulita cu secreter/cruciulitacusecreter4.jpg",
+    alt: "Cruciulite cu secreter imagine 4",
+  },
+  {
+    thumbnailSrc:
+      "/images/cruciulita cu secreter/thumbnail_cruciulitacusecreter5.jpg",
+    fullSrc: "/images/cruciulita cu secreter/cruciulitacusecreter5.jpg",
+    alt: "Cruciulite cu secreter imagine 5",
+  },
+];
+
+const altarAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc: "/images/altar/thumbnail_altar1.jpg",
+    fullSrc: "/images/altar/altar1.jpg",
+    alt: "Altar imagine 1",
+  },
+  {
+    thumbnailSrc: "/images/altar/thumbnail_altar2.jpg",
+    fullSrc: "/images/altar/altar2.jpg",
+    alt: "Altar imagine 2",
+  },
+];
+
+const dulapuriLemnDeNucAlbumImages: AlbumImage[] = Array.from(
+  { length: 15 },
+  (_, index) => {
+    const imageNo = index + 1;
+    return {
+      thumbnailSrc: `/images/dulapuri lemn de nuc/thumbnail_dulapurilemndenuc${imageNo}.jpg`,
+      fullSrc: `/images/dulapuri lemn de nuc/dulapurilemndenuc${imageNo}.jpg`,
+      alt: `Dulapuri lemn de nuc imagine ${imageNo}`,
+    };
+  },
+);
+
+const capDeLeuAlbumImages: AlbumImage[] = Array.from({ length: 12 }, (_, index) => {
+  const imageNo = index + 1;
+  return {
+    thumbnailSrc: `/images/cap de leu/thumbnail_capdeleu${imageNo}.jpg`,
+    fullSrc: `/images/cap de leu/capdeleu${imageNo}.jpg`,
+    alt: `Cap de leu imagine ${imageNo}`,
+  };
+});
+
+const cruciAlbumImages: AlbumImage[] = Array.from({ length: 45 }, (_, index) => {
+  const imageNo = index + 1;
+  return {
+    thumbnailSrc: `/images/cruci/thumbnail_cruci${imageNo}.jpg`,
+    fullSrc: `/images/cruci/cruci${imageNo}.jpg`,
+    alt: `Cruci imagine ${imageNo}`,
+  };
+});
+
+const copertaSfantaEvanghelieAlbumImages: AlbumImage[] = Array.from(
+  { length: 10 },
+  (_, index) => {
+    const imageNo = index + 1;
+    return {
+      thumbnailSrc: `/images/coperta sfanta evanghelie/thumbnail_copertasfantaevanghelie${imageNo}.jpg`,
+      fullSrc: `/images/coperta sfanta evanghelie/copertasfantaevanghelie${imageNo}.jpg`,
+      alt: `Coperta sfanta evanghelie imagine ${imageNo}`,
+    };
+  },
+);
+
+const axionitaAlbumImages: AlbumImage[] = Array.from({ length: 23 }, (_, index) => {
+  const imageNo = index + 1;
+  return {
+    thumbnailSrc: `/images/axionita/thumbnail_axionita${imageNo}.jpg`,
+    fullSrc: `/images/axionita/axionita${imageNo}.jpg`,
+    alt: `Axionita imagine ${imageNo}`,
+  };
+});
+
+const potirSiSfantulDiscAlbumImages: AlbumImage[] = Array.from(
+  { length: 6 },
+  (_, index) => {
+    const imageNo = index + 1;
+    return {
+      thumbnailSrc: `/images/potir si sfantul disc/thumbnail_potirsisfantuldisc${imageNo}.jpg`,
+      fullSrc: `/images/potir si sfantul disc/potirsisfantuldisc${imageNo}.jpg`,
+      alt: `Potir si sfantul disc imagine ${imageNo}`,
+    };
+  },
+);
+
 const works: Work[] = [
   {
     category: "Triptice",
@@ -771,6 +911,86 @@ const works: Work[] = [
     image: "/images/album-rame.jpg",
     imageAlt: "Rame",
     albumImages: rameAlbumImages,
+  },
+  {
+    category: "Masa sculptata",
+    title: "Masa sculptata",
+    description: "-",
+    image: "/images/masa sculptata/masasculptata1.jpg",
+    imageAlt: "Masa sculptata",
+    albumImages: masaSculptataAlbumImages,
+  },
+  {
+    category: "Frunze",
+    title: "Frunze",
+    description: "-",
+    image: "/images/frunze/frunze1.jpg",
+    imageAlt: "Frunze",
+    albumImages: frunzeAlbumImages,
+  },
+  {
+    category: "Cruciulite cu secreter",
+    title: "Cruciulite cu secreter",
+    description: "-",
+    image: "/images/cruciulita cu secreter/cruciulitacusecreter1.jpg",
+    imageAlt: "Cruciulite cu secreter",
+    albumImages: cruciuliteCuSecreterAlbumImages,
+  },
+  {
+    category: "Altar",
+    title: "Altar",
+    description: "-",
+    image: "/images/altar/altar1.jpg",
+    imageAlt: "Altar",
+    albumImages: altarAlbumImages,
+  },
+  {
+    category: "Dulapuri lemn de nuc",
+    title: "Dulapuri lemn de nuc",
+    description: "-",
+    image: "/images/dulapuri lemn de nuc/dulapurilemndenuc1.jpg",
+    imageAlt: "Dulapuri lemn de nuc",
+    albumImages: dulapuriLemnDeNucAlbumImages,
+  },
+  {
+    category: "Cap de leu",
+    title: "Cap de leu",
+    description: "-",
+    image: "/images/cap de leu/capdeleu1.jpg",
+    imageAlt: "Cap de leu",
+    albumImages: capDeLeuAlbumImages,
+  },
+  {
+    category: "Cruci",
+    title: "Cruci",
+    description: "-",
+    image: "/images/cruci/cruci1.jpg",
+    imageAlt: "Cruci",
+    albumImages: cruciAlbumImages,
+  },
+  {
+    category: "Coperta sfanta evanghelie",
+    title: "Coperta sfanta evanghelie",
+    description: "-",
+    image: "/images/coperta sfanta evanghelie/copertasfantaevanghelie1.jpg",
+    imageAlt: "Coperta sfanta evanghelie",
+    albumImages: copertaSfantaEvanghelieAlbumImages,
+  },
+  {
+    category: "Axionita",
+    title: "Axionita",
+    description: "-",
+    image: "/images/axionita/axionita1.jpg",
+    imageAlt: "Axionita",
+    albumImages: axionitaAlbumImages,
+  },
+  {
+    category: "Potir si sfantul disc",
+    title: "Potir si sfantul disc",
+    description: "-",
+    image: "/images/potir si sfantul disc/potirsisfantuldisc1.jpg",
+    imageAlt: "Potir si sfantul disc",
+    albumImages: potirSiSfantulDiscAlbumImages,
   },
 ];
 
