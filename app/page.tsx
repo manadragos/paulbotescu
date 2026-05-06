@@ -1237,8 +1237,8 @@ export default function Home() {
           </p>
 
           <div className="mt-12 grid gap-x-8 gap-y-14 md:grid-cols-2">
-            {works.map((work) => (
-              <article key={work.title}>
+            {works.map((work, index) => (
+              <article key={work.category || `work-${index}`}>
                 <button
                   type="button"
                   onClick={() => openAlbum(work)}
