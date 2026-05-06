@@ -51,6 +51,140 @@ const tripticeAlbumImages: AlbumImage[] = [
   },
 ];
 
+const troitaDeHotarAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc: "/images/troita de hotar/thumbnail_troitadehotar1.jpg",
+    fullSrc: "/images/troita de hotar/troitadehotar1.jpg",
+    alt: "Troita de hotar imagine 1",
+  },
+  {
+    thumbnailSrc: "/images/troita de hotar/thumbnail_troitadehotar2.jpg",
+    fullSrc: "/images/troita de hotar/troitadehotar2.jpg",
+    alt: "Troita de hotar imagine 2",
+  },
+];
+
+const cruceModelSapantaAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc: "/images/cruce model sapanta/thumbnail_crucemodelsapanta1.jpg",
+    fullSrc: "/images/cruce model sapanta/crucemodelsapanta1.jpg",
+    alt: "Cruce model Sapanta imagine 1",
+  },
+  {
+    thumbnailSrc: "/images/cruce model sapanta/thumbnail_crucemodelsapanta2.jpg",
+    fullSrc: "/images/cruce model sapanta/crucemodelsapanta2.jpg",
+    alt: "Cruce model Sapanta imagine 2",
+  },
+  {
+    thumbnailSrc: "/images/cruce model sapanta/thumbnail_crucemodelsapanta3.jpg",
+    fullSrc: "/images/cruce model sapanta/crucemodelsapanta3.jpg",
+    alt: "Cruce model Sapanta imagine 3",
+  },
+];
+
+const axionitaProdromitaAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc:
+      "/images/axionita prodromita/thumbnail_axionitaprodromita1.jpg",
+    fullSrc: "/images/axionita prodromita/axionitaprodromita1.jpg",
+    alt: "Axionita Prodromita imagine 1",
+  },
+  {
+    thumbnailSrc:
+      "/images/axionita prodromita/thumbnail_axionitaprodromita2.jpg",
+    fullSrc: "/images/axionita prodromita/axionitaprodromita2.jpg",
+    alt: "Axionita Prodromita imagine 2",
+  },
+  {
+    thumbnailSrc:
+      "/images/axionita prodromita/thumbnail_axionitaprodromita3.jpg",
+    fullSrc: "/images/axionita prodromita/axionitaprodromita3.jpg",
+    alt: "Axionita Prodromita imagine 3",
+  },
+  {
+    thumbnailSrc:
+      "/images/axionita prodromita/thumbnail_axionitaprodromita4.jpg",
+    fullSrc: "/images/axionita prodromita/axionitaprodromita4.jpg",
+    alt: "Axionita Prodromita imagine 4",
+  },
+  {
+    thumbnailSrc:
+      "/images/axionita prodromita/thumbnail_axionitaprodromita5.jpg",
+    fullSrc: "/images/axionita prodromita/axionitaprodromita5.jpg",
+    alt: "Axionita Prodromita imagine 5",
+  },
+  {
+    thumbnailSrc:
+      "/images/axionita prodromita/thumbnail_axionitaprodromita6.jpg",
+    fullSrc: "/images/axionita prodromita/axionitaprodromita6.jpg",
+    alt: "Axionita Prodromita imagine 6",
+  },
+  {
+    thumbnailSrc:
+      "/images/axionita prodromita/thumbnail_axionitaprodromita7.jpg",
+    fullSrc: "/images/axionita prodromita/axionitaprodromita7.jpg",
+    alt: "Axionita Prodromita imagine 7",
+  },
+];
+
+const icoaneAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc: "/images/icoane/thumbnail_icoane1.jpg",
+    fullSrc: "/images/icoane/icoane1.jpg",
+    alt: "Icoane imagine 1",
+  },
+  {
+    thumbnailSrc: "/images/icoane/thumbnail_icoane2.jpg",
+    fullSrc: "/images/icoane/icoane2.jpg",
+    alt: "Icoane imagine 2",
+  },
+  {
+    thumbnailSrc: "/images/icoane/thumbnail_icoane3.jpg",
+    fullSrc: "/images/icoane/icoane3.jpg",
+    alt: "Icoane imagine 3",
+  },
+  {
+    thumbnailSrc: "/images/icoane/thumbnail_icoane4.jpg",
+    fullSrc: "/images/icoane/icoane4.jpg",
+    alt: "Icoane imagine 4",
+  },
+  {
+    thumbnailSrc: "/images/icoane/thumbnail_icoane5.jpg",
+    fullSrc: "/images/icoane/icoane5.jpg",
+    alt: "Icoane imagine 5",
+  },
+  {
+    thumbnailSrc: "/images/icoane/thumbnail_icoane6.jpg",
+    fullSrc: "/images/icoane/icoane6.jpg",
+    alt: "Icoane imagine 6",
+  },
+  {
+    thumbnailSrc: "/images/icoane/thumbnail_icoane7.jpg",
+    fullSrc: "/images/icoane/icoane7.jpg",
+    alt: "Icoane imagine 7",
+  },
+  {
+    thumbnailSrc: "/images/icoane/thumbnail_icoane8.jpg",
+    fullSrc: "/images/icoane/icoane8.jpg",
+    alt: "Icoane imagine 8",
+  },
+  {
+    thumbnailSrc: "/images/icoane/thumbnail_icoane9.jpg",
+    fullSrc: "/images/icoane/icoane9.jpg",
+    alt: "Icoane imagine 9",
+  },
+  {
+    thumbnailSrc: "/images/icoane/thumbnail_icoane10.jpg",
+    fullSrc: "/images/icoane/icoane10.jpg",
+    alt: "Icoane imagine 10",
+  },
+  {
+    thumbnailSrc: "/images/icoane/thumbnail_icoane11.jpg",
+    fullSrc: "/images/icoane/icoane11.jpg",
+    alt: "Icoane imagine 11",
+  },
+];
+
 const works: Work[] = [
   {
     category: "Triptice",
@@ -66,6 +200,7 @@ const works: Work[] = [
     description: "-",
     image: "/images/album-troite.jpg",
     imageAlt: "Troita de hotar",
+    albumImages: troitaDeHotarAlbumImages,
   },
   {
     category: "Cruce model Sapanta",
@@ -73,6 +208,7 @@ const works: Work[] = [
     description: "-",
     image: "/images/album-cruce-model-sapanta.jpg",
     imageAlt: "Cruce model Sapanta",
+    albumImages: cruceModelSapantaAlbumImages,
   },
   {
     category: "Axionita Prodromita",
@@ -80,6 +216,7 @@ const works: Work[] = [
     description: "-",
     image: "/images/album-axionita-prodromita.jpg",
     imageAlt: "Axionita Prodromita",
+    albumImages: axionitaProdromitaAlbumImages,
   },
   {
     category: "Icoane",
@@ -87,6 +224,7 @@ const works: Work[] = [
     description: "-",
     image: "/images/album-icoane.jpg",
     imageAlt: "Icoane",
+    albumImages: icoaneAlbumImages,
   },
   {
     category: "Icoane pe usi",
@@ -303,7 +441,8 @@ export default function Home() {
     touchStartXRef.current = null;
   };
 
-  const visibleDesktopIndexes = Array.from({ length: 3 }).map(
+  const desktopVisibleCount = Math.min(3, albumImageCount);
+  const visibleDesktopIndexes = Array.from({ length: desktopVisibleCount }).map(
     (_, offset) => (carouselStartIndex + offset) % albumImageCount,
   );
 
@@ -400,13 +539,24 @@ export default function Home() {
                   onClick={() => openAlbum(work)}
                   className="group block w-full text-left"
                   aria-label={`Deschide albumul ${work.title}`}
+                  style={{
+                    cursor: "url('/images/chisel_cursor_large.png') 7 4, pointer",
+                  }}
                 >
-                  <FramedImage
-                    src={work.image}
-                    alt={work.imageAlt}
-                    className="aspect-[4/3] w-full shadow-[0_10px_26px_rgba(74,46,31,0.12)] transition duration-300 group-hover:translate-y-[-2px] group-hover:shadow-[0_14px_30px_rgba(74,46,31,0.16)]"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+                  <div
+                    className="w-full p-0 transition duration-300 group-hover:translate-y-[-2px] group-hover:shadow-[0_0_0_1px_rgba(214,166,74,0.45),0_0_16px_rgba(214,166,74,0.28)] group-active:shadow-[0_0_0_1px_rgba(214,166,74,0.45),0_0_16px_rgba(214,166,74,0.28)] group-focus-visible:shadow-[0_0_0_1px_rgba(214,166,74,0.45),0_0_16px_rgba(214,166,74,0.28)]"
+                    style={{
+                      border: "3px solid transparent",
+                      borderImage: "url('/images/rustic-border.svg') 16 round",
+                    }}
+                  >
+                    <FramedImage
+                      src={work.image}
+                      alt={work.imageAlt}
+                      className="aspect-[4/3] w-full shadow-[0_10px_26px_rgba(74,46,31,0.12)] transition duration-300 max-md:brightness-105 max-md:contrast-105 max-md:saturate-110 max-md:shadow-[0_0_14px_rgba(214,166,74,0.28),0_12px_24px_rgba(74,46,31,0.16)] group-hover:brightness-110 group-hover:contrast-105 group-hover:saturate-110 group-hover:shadow-[0_0_18px_rgba(214,166,74,0.35),0_14px_30px_rgba(74,46,31,0.2)] group-active:brightness-110 group-active:contrast-105 group-active:saturate-110 group-active:shadow-[0_0_18px_rgba(214,166,74,0.35),0_14px_30px_rgba(74,46,31,0.2)] group-focus-visible:brightness-110 group-focus-visible:contrast-105 group-focus-visible:saturate-110 group-focus-visible:shadow-[0_0_18px_rgba(214,166,74,0.35),0_14px_30px_rgba(74,46,31,0.2)]"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
                   <p className="mt-5 text-xs uppercase tracking-[0.2em] text-[var(--accent-red)]">
                     {work.category}
                   </p>
@@ -464,7 +614,7 @@ export default function Home() {
                     alt="Dalta"
                     width={96}
                     height={96}
-                    className="h-16 w-16 bg-transparent object-contain mix-blend-multiply md:h-[72px] md:w-[72px]"
+                    className="h-16 w-16 bg-transparent object-contain mix-blend-multiply drop-shadow-[0_0_34px_rgba(214,166,74,0.95)] md:h-[72px] md:w-[72px]"
                     title="Dalta"
                   />
                 </div>
@@ -475,7 +625,9 @@ export default function Home() {
                     onClick={() => maximizePhoto(selectedPhotoIndex)}
                     className="relative w-full rounded-sm border border-[var(--accent-red)]/70 shadow-[0_0_0_2px_rgba(149,48,28,0.16)] transition hover:border-[var(--accent-red)]"
                     aria-label={`Alege imaginea ${selectedPhotoIndex + 1} din albumul ${selectedWork.title}`}
-                    style={{ cursor: "url('/images/chisel_cursor.png') 5 3, pointer" }}
+                    style={{
+                      cursor: "url('/images/chisel_cursor_large.png') 7 4, pointer",
+                    }}
                   >
                     <FramedImage
                       src={activeAlbumImages[selectedPhotoIndex]?.thumbnailSrc}
@@ -490,18 +642,36 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={goToPrevPhoto}
-                    className="absolute -left-[38px] top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[color:rgba(244,237,228,0.88)] text-lg font-semibold text-[var(--wood-dark)] shadow-[0_4px_10px_rgba(74,46,31,0.16)]"
+                    className="absolute -left-[38px] top-1/2 flex h-10 w-8 -translate-y-1/2 items-center justify-center text-[var(--wood-mid)] transition hover:text-[var(--accent-red)] hover:drop-shadow-[0_0_11px_rgba(214,166,74,0.72)]"
                     aria-label="Imagine anterioara"
                   >
-                    &lt;
+                    <svg viewBox="0 0 24 24" className="h-7 w-7" aria-hidden="true">
+                      <path
+                        d="M14.5 5.5L8 12l6.5 6.5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
                   </button>
                   <button
                     type="button"
                     onClick={goToNextPhoto}
-                    className="absolute -right-[38px] top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[color:rgba(244,237,228,0.88)] text-lg font-semibold text-[var(--wood-dark)] shadow-[0_4px_10px_rgba(74,46,31,0.16)]"
+                    className="absolute -right-[38px] top-1/2 flex h-10 w-8 -translate-y-1/2 items-center justify-center text-[var(--wood-mid)] transition hover:text-[var(--accent-red)] hover:drop-shadow-[0_0_11px_rgba(214,166,74,0.72)]"
                     aria-label="Imagine urmatoare"
                   >
-                    &gt;
+                    <svg viewBox="0 0 24 24" className="h-7 w-7" aria-hidden="true">
+                      <path
+                        d="M9.5 5.5L16 12l-6.5 6.5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
                   </button>
                   </div>
                 </div>
@@ -510,22 +680,26 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={goToPrevPhoto}
-                    className="flex h-12 w-12 items-center justify-center rounded-full border border-[var(--wood-mid)] bg-[var(--background-soft)] text-[var(--wood-dark)] transition hover:border-[var(--accent-red)] hover:text-[var(--accent-red)]"
+                    className="flex h-12 w-10 items-center justify-center text-[var(--wood-mid)] transition hover:text-[var(--accent-red)] hover:drop-shadow-[0_0_12px_rgba(214,166,74,0.72)]"
                     aria-label="Thumbnail anterior"
                   >
-                    <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" className="h-8 w-8" aria-hidden="true">
                       <path
                         d="M14.5 5.5L8 12l6.5 6.5"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="1.8"
+                        strokeWidth="2.8"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
                     </svg>
                   </button>
 
-                  <div className="grid w-[82vw] max-w-[1220px] grid-cols-3 gap-5">
+                  <div
+                    className={`grid w-[82vw] max-w-[1220px] gap-5 ${
+                      desktopVisibleCount === 2 ? "grid-cols-2" : "grid-cols-3"
+                    }`}
+                  >
                     {visibleDesktopIndexes.map((index) => (
                       <button
                         key={`${selectedWork.title}-desktop-thumb-${index}`}
@@ -538,7 +712,8 @@ export default function Home() {
                         }`}
                         aria-label={`Alege imaginea ${index + 1} din albumul ${selectedWork.title}`}
                         style={{
-                          cursor: "url('/images/chisel_cursor.png') 5 3, pointer",
+                          cursor:
+                            "url('/images/chisel_cursor_large.png') 7 4, pointer",
                         }}
                       >
                         <FramedImage
@@ -557,15 +732,15 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={goToNextPhoto}
-                    className="flex h-12 w-12 items-center justify-center rounded-full border border-[var(--wood-mid)] bg-[var(--background-soft)] text-[var(--wood-dark)] transition hover:border-[var(--accent-red)] hover:text-[var(--accent-red)]"
+                    className="flex h-12 w-10 items-center justify-center text-[var(--wood-mid)] transition hover:text-[var(--accent-red)] hover:drop-shadow-[0_0_12px_rgba(214,166,74,0.72)]"
                     aria-label="Thumbnail urmator"
                   >
-                    <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" className="h-8 w-8" aria-hidden="true">
                       <path
                         d="M9.5 5.5L16 12l-6.5 6.5"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="1.8"
+                        strokeWidth="2.8"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
