@@ -494,6 +494,143 @@ const raclaAlbumImages: AlbumImage[] = [
   },
 ];
 
+const polipticeAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc: "/images/poliptice/thumbnail_poliptice1.jpg",
+    fullSrc: "/images/poliptice/poliptice1.jpg",
+    alt: "Poliptice imagine 1",
+  },
+  {
+    thumbnailSrc: "/images/poliptice/thumbnail_poliptice2.jpg",
+    fullSrc: "/images/poliptice/poliptice2.jpg",
+    alt: "Poliptice imagine 2",
+  },
+  {
+    thumbnailSrc: "/images/poliptice/thumbnail_poliptice3.jpg",
+    fullSrc: "/images/poliptice/poliptice3.jpg",
+    alt: "Poliptice imagine 3",
+  },
+  {
+    thumbnailSrc: "/images/poliptice/thumbnail_poliptice4.jpg",
+    fullSrc: "/images/poliptice/poliptice4.jpg",
+    alt: "Poliptice imagine 4",
+  },
+  {
+    thumbnailSrc: "/images/poliptice/thumbnail_poliptice5.jpg",
+    fullSrc: "/images/poliptice/poliptice5.jpg",
+    alt: "Poliptice imagine 5",
+  },
+  {
+    thumbnailSrc: "/images/poliptice/thumbnail_poliptice6.jpg",
+    fullSrc: "/images/poliptice/poliptice6.jpg",
+    alt: "Poliptice imagine 6",
+  },
+  {
+    thumbnailSrc: "/images/poliptice/thumbnail_poliptice7.jpg",
+    fullSrc: "/images/poliptice/poliptice7.jpg",
+    alt: "Poliptice imagine 7",
+  },
+  {
+    thumbnailSrc: "/images/poliptice/thumbnail_poliptice8.jpg",
+    fullSrc: "/images/poliptice/poliptice8.jpg",
+    alt: "Poliptice imagine 8",
+  },
+];
+
+const matritaLumanareAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc: "/images/matrita lumanare/thumbnail_matritalumanare1.jpg",
+    fullSrc: "/images/matrita lumanare/matritalumanare1.jpg",
+    alt: "Matrita lumanare imagine 1",
+  },
+  {
+    thumbnailSrc: "/images/matrita lumanare/thumbnail_matritalumanare2.jpg",
+    fullSrc: "/images/matrita lumanare/matritalumanare2.jpg",
+    alt: "Matrita lumanare imagine 2",
+  },
+  {
+    thumbnailSrc: "/images/matrita lumanare/thumbnail_matritalumanare3.jpg",
+    fullSrc: "/images/matrita lumanare/matritalumanare3.jpg",
+    alt: "Matrita lumanare imagine 3",
+  },
+];
+
+const sahDeGradinaAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc: "/images/sah de gradina/thumbnail_sahdegradina1.jpg",
+    fullSrc: "/images/sah de gradina/sahdegradina1.jpg",
+    alt: "Sah de gradina imagine 1",
+  },
+  {
+    thumbnailSrc: "/images/sah de gradina/thumbnail_sahdegradina2.jpg",
+    fullSrc: "/images/sah de gradina/sahdegradina2.jpg",
+    alt: "Sah de gradina imagine 2",
+  },
+  {
+    thumbnailSrc: "/images/sah de gradina/thumbnail_sahdegradina3.jpg",
+    fullSrc: "/images/sah de gradina/sahdegradina3.jpg",
+    alt: "Sah de gradina imagine 3",
+  },
+];
+
+const sahDaciiSiRomaniiAlbumImages: AlbumImage[] = Array.from(
+  { length: 33 },
+  (_, index) => {
+    const imageNo = index + 1;
+    return {
+      thumbnailSrc: `/images/sah dacii si romanii/thumbnail_sahdaciisiromanii${imageNo}.jpg`,
+      fullSrc: `/images/sah dacii si romanii/sahdaciisiromanii${imageNo}.jpg`,
+      alt: `Sah dacii si romanii imagine ${imageNo}`,
+    };
+  },
+);
+
+const suportSticlaDacAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc: "/images/suport sticla dac/thumbnail_suportsticladac1.jpg",
+    fullSrc: "/images/suport sticla dac/suportsticladac1.jpg",
+    alt: "Suport sticla Dac imagine 1",
+  },
+  {
+    thumbnailSrc: "/images/suport sticla dac/thumbnail_suportsticladac2.jpg",
+    fullSrc: "/images/suport sticla dac/suportsticladac2.jpg",
+    alt: "Suport sticla Dac imagine 2",
+  },
+  {
+    thumbnailSrc: "/images/suport sticla dac/thumbnail_suportsticladac3.jpg",
+    fullSrc: "/images/suport sticla dac/suportsticladac3.jpg",
+    alt: "Suport sticla Dac imagine 3",
+  },
+  {
+    thumbnailSrc: "/images/suport sticla dac/thumbnail_suportsticladac4.jpg",
+    fullSrc: "/images/suport sticla dac/suportsticladac4.jpg",
+    alt: "Suport sticla Dac imagine 4",
+  },
+  {
+    thumbnailSrc: "/images/suport sticla dac/thumbnail_suportsticladac5.jpg",
+    fullSrc: "/images/suport sticla dac/suportsticladac5.jpg",
+    alt: "Suport sticla Dac imagine 5",
+  },
+];
+
+const rameAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc: "/images/rame/thumbnail_rame1.jpg",
+    fullSrc: "/images/rame/rame1.jpg",
+    alt: "Rame imagine 1",
+  },
+  {
+    thumbnailSrc: "/images/rame/thumbnail_rame2.jpg",
+    fullSrc: "/images/rame/rame2.jpg",
+    alt: "Rame imagine 2",
+  },
+  {
+    thumbnailSrc: "/images/rame/thumbnail_rame3.jpg",
+    fullSrc: "/images/rame/rame3.jpg",
+    alt: "Rame imagine 3",
+  },
+];
+
 const works: Work[] = [
   {
     category: "Triptice",
@@ -597,6 +734,7 @@ const works: Work[] = [
     description: "-",
     image: "/images/album-poliptice.jpg",
     imageAlt: "Poliptice",
+    albumImages: polipticeAlbumImages,
   },
   {
     category: "Matrita lumanare",
@@ -604,6 +742,7 @@ const works: Work[] = [
     description: "-",
     image: "/images/album-matrita-lumanare.jpg",
     imageAlt: "Matrita lumanare",
+    albumImages: matritaLumanareAlbumImages,
   },
   {
     category: "Sah de gradina",
@@ -611,6 +750,7 @@ const works: Work[] = [
     description: "-",
     image: "/images/album-sah-gradina.jpg",
     imageAlt: "Sah de gradina",
+    albumImages: sahDeGradinaAlbumImages,
   },
   {
     category: "Sah dacii si romanii",
@@ -618,6 +758,7 @@ const works: Work[] = [
     description: "-",
     image: "/images/album-sah-dacii-romanii.jpg",
     imageAlt: "Sah dacii si romanii",
+    albumImages: sahDaciiSiRomaniiAlbumImages,
   },
   {
     category: "Suport sticla Dac",
@@ -625,6 +766,7 @@ const works: Work[] = [
     description: "-",
     image: "/images/album-suport-sticla-dac.jpg",
     imageAlt: "Suport sticla Dac",
+    albumImages: suportSticlaDacAlbumImages,
   },
   {
     category: "Rame",
@@ -632,6 +774,7 @@ const works: Work[] = [
     description: "-",
     image: "/images/album-rame.jpg",
     imageAlt: "Rame",
+    albumImages: rameAlbumImages,
   },
 ];
 
