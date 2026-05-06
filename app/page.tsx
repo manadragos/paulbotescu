@@ -289,6 +289,211 @@ const ingeriAlbumImages: AlbumImage[] = [
   },
 ];
 
+const raclaPetruVodaAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc: "/images/racla petru voda/thumbnail_raclapetruvoda1.jpg",
+    fullSrc: "/images/racla petru voda/raclapetruvoda1.jpg",
+    alt: "Racla Petru Voda imagine 1",
+  },
+  {
+    thumbnailSrc: "/images/racla petru voda/thumbnail_raclapetruvoda2.jpg",
+    fullSrc: "/images/racla petru voda/raclapetruvoda2.jpg",
+    alt: "Racla Petru Voda imagine 2",
+  },
+  {
+    thumbnailSrc: "/images/racla petru voda/thumbnail_raclapetruvoda3.jpg",
+    fullSrc: "/images/racla petru voda/raclapetruvoda3.jpg",
+    alt: "Racla Petru Voda imagine 3",
+  },
+  {
+    thumbnailSrc: "/images/racla petru voda/thumbnail_raclapetruvoda4.jpg",
+    fullSrc: "/images/racla petru voda/raclapetruvoda4.jpg",
+    alt: "Racla Petru Voda imagine 4",
+  },
+  {
+    thumbnailSrc: "/images/racla petru voda/thumbnail_raclapetruvoda5.jpg",
+    fullSrc: "/images/racla petru voda/raclapetruvoda5.jpg",
+    alt: "Racla Petru Voda imagine 5",
+  },
+  {
+    thumbnailSrc: "/images/racla petru voda/thumbnail_raclapetruvoda6.jpg",
+    fullSrc: "/images/racla petru voda/raclapetruvoda6.jpg",
+    alt: "Racla Petru Voda imagine 6",
+  },
+  {
+    thumbnailSrc: "/images/racla petru voda/thumbnail_raclapetruvoda7.jpg",
+    fullSrc: "/images/racla petru voda/raclapetruvoda7.jpg",
+    alt: "Racla Petru Voda imagine 7",
+  },
+  {
+    thumbnailSrc: "/images/racla petru voda/thumbnail_raclapetruvoda8.jpg",
+    fullSrc: "/images/racla petru voda/raclapetruvoda8.jpg",
+    alt: "Racla Petru Voda imagine 8",
+  },
+];
+
+const stranaArhiereascaAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc:
+      "/images/strana arhiereasca/thumbnail_stranaarhiereasca1.jpg",
+    fullSrc: "/images/strana arhiereasca/stranaarhiereasca1.jpg",
+    alt: "Strana arhiereasca imagine 1",
+  },
+  {
+    thumbnailSrc:
+      "/images/strana arhiereasca/thumbnail_stranaarhiereasca2.jpg",
+    fullSrc: "/images/strana arhiereasca/stranaarhiereasca2.jpg",
+    alt: "Strana arhiereasca imagine 2",
+  },
+  {
+    thumbnailSrc:
+      "/images/strana arhiereasca/thumbnail_stranaarhiereasca3.jpg",
+    fullSrc: "/images/strana arhiereasca/stranaarhiereasca3.jpg",
+    alt: "Strana arhiereasca imagine 3",
+  },
+  {
+    thumbnailSrc:
+      "/images/strana arhiereasca/thumbnail_stranaarhiereasca4.jpg",
+    fullSrc: "/images/strana arhiereasca/stranaarhiereasca4.jpg",
+    alt: "Strana arhiereasca imagine 4",
+  },
+  {
+    thumbnailSrc:
+      "/images/strana arhiereasca/thumbnail_stranaarhiereasca5.jpg",
+    fullSrc: "/images/strana arhiereasca/stranaarhiereasca5.jpg",
+    alt: "Strana arhiereasca imagine 5",
+  },
+  {
+    thumbnailSrc:
+      "/images/strana arhiereasca/thumbnail_stranaarhiereasca6.jpg",
+    fullSrc: "/images/strana arhiereasca/stranaarhiereasca6.jpg",
+    alt: "Strana arhiereasca imagine 6",
+  },
+  {
+    thumbnailSrc:
+      "/images/strana arhiereasca/thumbnail_stranaarhiereasca7.jpg",
+    fullSrc: "/images/strana arhiereasca/stranaarhiereasca7.jpg",
+    alt: "Strana arhiereasca imagine 7",
+  },
+  {
+    thumbnailSrc:
+      "/images/strana arhiereasca/thumbnail_stranaarhiereasca8.jpg",
+    fullSrc: "/images/strana arhiereasca/stranaarhiereasca8.jpg",
+    alt: "Strana arhiereasca imagine 8",
+  },
+  {
+    thumbnailSrc:
+      "/images/strana arhiereasca/thumbnail_stranaarhiereasca9.jpg",
+    fullSrc: "/images/strana arhiereasca/stranaarhiereasca9.jpg",
+    alt: "Strana arhiereasca imagine 9",
+  },
+  {
+    thumbnailSrc:
+      "/images/strana arhiereasca/thumbnail_stranaarhiereasca10.jpg",
+    fullSrc: "/images/strana arhiereasca/stranaarhiereasca10.jpg",
+    alt: "Strana arhiereasca imagine 10",
+  },
+  {
+    thumbnailSrc:
+      "/images/strana arhiereasca/thumbnail_stranaarhiereasca11.jpg",
+    fullSrc: "/images/strana arhiereasca/stranaarhiereasca11.jpg",
+    alt: "Strana arhiereasca imagine 11",
+  },
+  {
+    thumbnailSrc:
+      "/images/strana arhiereasca/thumbnail_stranaarhiereasca12.jpg",
+    fullSrc: "/images/strana arhiereasca/stranaarhiereasca12.jpg",
+    alt: "Strana arhiereasca imagine 12",
+  },
+  {
+    thumbnailSrc:
+      "/images/strana arhiereasca/thumbnail_stranaarhiereasca13.jpg",
+    fullSrc: "/images/strana arhiereasca/stranaarhiereasca13.jpg",
+    alt: "Strana arhiereasca imagine 13",
+  },
+];
+
+const raclaDanionAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc: "/images/racla danion/thumbnail_racladanion1.jpg",
+    fullSrc: "/images/racla danion/racladanion1.jpg",
+    alt: "Racla Danion imagine 1",
+  },
+  {
+    thumbnailSrc: "/images/racla danion/thumbnail_racladanion2.jpg",
+    fullSrc: "/images/racla danion/racladanion2.jpg",
+    alt: "Racla Danion imagine 2",
+  },
+  {
+    thumbnailSrc: "/images/racla danion/thumbnail_racladanion3.jpg",
+    fullSrc: "/images/racla danion/racladanion3.jpg",
+    alt: "Racla Danion imagine 3",
+  },
+  {
+    thumbnailSrc: "/images/racla danion/thumbnail_racladanion4.jpg",
+    fullSrc: "/images/racla danion/racladanion4.jpg",
+    alt: "Racla Danion imagine 4",
+  },
+  {
+    thumbnailSrc: "/images/racla danion/thumbnail_racladanion5.jpg",
+    fullSrc: "/images/racla danion/racladanion5.jpg",
+    alt: "Racla Danion imagine 5",
+  },
+  {
+    thumbnailSrc: "/images/racla danion/thumbnail_racladanion6.jpg",
+    fullSrc: "/images/racla danion/racladanion6.jpg",
+    alt: "Racla Danion imagine 6",
+  },
+  {
+    thumbnailSrc: "/images/racla danion/thumbnail_racladanion7.jpg",
+    fullSrc: "/images/racla danion/racladanion7.jpg",
+    alt: "Racla Danion imagine 7",
+  },
+  {
+    thumbnailSrc: "/images/racla danion/thumbnail_racladanion8.jpg",
+    fullSrc: "/images/racla danion/racladanion8.jpg",
+    alt: "Racla Danion imagine 8",
+  },
+  {
+    thumbnailSrc: "/images/racla danion/thumbnail_racladanion9.jpg",
+    fullSrc: "/images/racla danion/racladanion9.jpg",
+    alt: "Racla Danion imagine 9",
+  },
+];
+
+const raclaAlbumImages: AlbumImage[] = [
+  {
+    thumbnailSrc: "/images/racla/thumbnail_racla1.jpg",
+    fullSrc: "/images/racla/racla1.jpg",
+    alt: "Racla imagine 1",
+  },
+  {
+    thumbnailSrc: "/images/racla/thumbnail_racla2.jpg",
+    fullSrc: "/images/racla/racla2.jpg",
+    alt: "Racla imagine 2",
+  },
+  {
+    thumbnailSrc: "/images/racla/thumbnail_racla3.jpg",
+    fullSrc: "/images/racla/racla3.jpg",
+    alt: "Racla imagine 3",
+  },
+  {
+    thumbnailSrc: "/images/racla/thumbnail_racla4.jpg",
+    fullSrc: "/images/racla/racla4.jpg",
+    alt: "Racla imagine 4",
+  },
+  {
+    thumbnailSrc: "/images/racla/thumbnail_racla5.jpg",
+    fullSrc: "/images/racla/racla5.jpg",
+    alt: "Racla imagine 5",
+  },
+  {
+    thumbnailSrc: "/images/racla/thumbnail_racla6.jpg",
+    fullSrc: "/images/racla/racla6.jpg",
+    alt: "Racla imagine 6",
+  },
+];
+
 const works: Work[] = [
   {
     category: "Triptice",
@@ -360,6 +565,7 @@ const works: Work[] = [
     description: "-",
     image: "/images/album-racla-petru-voda.jpg",
     imageAlt: "Racla Petru Voda",
+    albumImages: raclaPetruVodaAlbumImages,
   },
   {
     category: "Strana arhiereasca",
@@ -367,6 +573,7 @@ const works: Work[] = [
     description: "-",
     image: "/images/album-strana-arhiereasca.jpg",
     imageAlt: "Strana arhiereasca",
+    albumImages: stranaArhiereascaAlbumImages,
   },
   {
     category: "Racla Danion",
@@ -374,6 +581,7 @@ const works: Work[] = [
     description: "-",
     image: "/images/album-racla-danion.jpg",
     imageAlt: "Racla Danion",
+    albumImages: raclaDanionAlbumImages,
   },
   {
     category: "Racla",
@@ -381,6 +589,7 @@ const works: Work[] = [
     description: "-",
     image: "/images/album-racla.jpg",
     imageAlt: "Racla",
+    albumImages: raclaAlbumImages,
   },
   {
     category: "Poliptice",
