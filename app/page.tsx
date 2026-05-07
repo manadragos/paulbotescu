@@ -716,23 +716,29 @@ const dulapuriLemnDeNucAlbumImages: AlbumImage[] = Array.from(
   },
 );
 
-const capDeLeuAlbumImages: AlbumImage[] = Array.from({ length: 12 }, (_, index) => {
-  const imageNo = index + 1;
-  return {
-    thumbnailSrc: `/images/cap de leu/thumbnail_capdeleu${imageNo}.jpg`,
-    fullSrc: `/images/cap de leu/capdeleu${imageNo}.jpg`,
-    alt: `Cap de leu imagine ${imageNo}`,
-  };
-});
+const capDeLeuAlbumImages: AlbumImage[] = Array.from(
+  { length: 12 },
+  (_, index) => {
+    const imageNo = index + 1;
+    return {
+      thumbnailSrc: `/images/cap de leu/thumbnail_capdeleu${imageNo}.jpg`,
+      fullSrc: `/images/cap de leu/capdeleu${imageNo}.jpg`,
+      alt: `Cap de leu imagine ${imageNo}`,
+    };
+  },
+);
 
-const cruciAlbumImages: AlbumImage[] = Array.from({ length: 45 }, (_, index) => {
-  const imageNo = index + 1;
-  return {
-    thumbnailSrc: `/images/cruci/thumbnail_cruci${imageNo}.jpg`,
-    fullSrc: `/images/cruci/cruci${imageNo}.jpg`,
-    alt: `Cruci imagine ${imageNo}`,
-  };
-});
+const cruciAlbumImages: AlbumImage[] = Array.from(
+  { length: 45 },
+  (_, index) => {
+    const imageNo = index + 1;
+    return {
+      thumbnailSrc: `/images/cruci/thumbnail_cruci${imageNo}.jpg`,
+      fullSrc: `/images/cruci/cruci${imageNo}.jpg`,
+      alt: `Cruci imagine ${imageNo}`,
+    };
+  },
+);
 
 const copertaSfantaEvanghelieAlbumImages: AlbumImage[] = Array.from(
   { length: 10 },
@@ -746,14 +752,17 @@ const copertaSfantaEvanghelieAlbumImages: AlbumImage[] = Array.from(
   },
 );
 
-const axionitaAlbumImages: AlbumImage[] = Array.from({ length: 23 }, (_, index) => {
-  const imageNo = index + 1;
-  return {
-    thumbnailSrc: `/images/axionita/thumbnail_axionita${imageNo}.jpg`,
-    fullSrc: `/images/axionita/axionita${imageNo}.jpg`,
-    alt: `Axionita imagine ${imageNo}`,
-  };
-});
+const axionitaAlbumImages: AlbumImage[] = Array.from(
+  { length: 23 },
+  (_, index) => {
+    const imageNo = index + 1;
+    return {
+      thumbnailSrc: `/images/axionita/thumbnail_axionita${imageNo}.jpg`,
+      fullSrc: `/images/axionita/axionita${imageNo}.jpg`,
+      alt: `Axionita imagine ${imageNo}`,
+    };
+  },
+);
 
 const potirSiSfantulDiscAlbumImages: AlbumImage[] = Array.from(
   { length: 6 },
@@ -1581,7 +1590,9 @@ export default function Home() {
                       Se incarca CV-ul...
                     </p>
                   ) : cvError ? (
-                    <p className="text-sm text-[var(--accent-red)]">{cvError}</p>
+                    <p className="text-sm text-[var(--accent-red)]">
+                      {cvError}
+                    </p>
                   ) : (
                     <div className="min-w-0 max-w-full break-words text-[var(--text-main)]/90">
                       <ReactMarkdown
@@ -1661,14 +1672,14 @@ export default function Home() {
                     <iframe
                       src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent("https://www.facebook.com/trinitastv/videos/1114605440405032/")}&show_text=false&t=0&width=620`}
                       width="100%"
-                      height={408}
+                      height={360}
                       style={{ border: "none", overflow: "hidden" }}
                       scrolling="no"
                       frameBorder="0"
                       allowFullScreen
                       allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                      className="block aspect-[620/408] w-full lg:aspect-auto lg:h-[408px]"
-                      title="Restaurarea catapetesmei brâncovenești — Trinitas TV"
+                      className="block aspect-[620/360] w-full lg:aspect-auto lg:h-[360px]"
+                      title="Restaurarea catapetesmei Brâncovenești — Trinitas TV"
                     />
                   </div>
                 </div>

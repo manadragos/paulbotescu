@@ -26,7 +26,7 @@ Sculptură în lemn în cadrul Taberei de Creație "Vara pe Uliță" <br />
 2019-2022 – Colaborator restaurare Biserica Măgureni Prahova <br />
 2019-2025 – Colaborator restaurare Biserica Sf. Ilie Colțea București <br />
 2020 Angajat ca sculptor restaurator la SC IORUX TRADE SRL <br />
-2025 Sculptor autorizat de Biserica Ortodoxă Română />
+2025 Sculptor autorizat de Biserica Ortodoxă Română <br />
 2025 Președinte la ASOCIAȚIA ARTA SCULPTURII ÎN LEMN-TRADIȚIE ȘI INOVAȚIE <br /> <br />
 
 **Lucrari expuse in cadrul expozitiilor anuale organizate de:**
