@@ -4,6 +4,8 @@ import Image from "next/image";
 import rehypeRaw from "rehype-raw";
 import ReactMarkdown from "react-markdown";
 import { useEffect, useRef, useState } from "react";
+import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
 
 type AlbumImage = {
   thumbnailSrc: string;
@@ -1162,32 +1164,7 @@ export default function Home() {
 
   return (
     <div className="grain-bg min-h-screen">
-      <header className="sticky top-0 z-30 border-b border-[var(--border-soft)]/80 bg-[color:rgba(244,237,228,0.88)] backdrop-blur-sm">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8">
-          <div>
-            <p className="font-heading text-2xl text-[var(--wood-dark)]">
-              Paul Botescu
-            </p>
-            <p className="text-xs uppercase tracking-[0.18em] text-[var(--wood-mid)]">
-              Sculptura in lemn
-            </p>
-          </div>
-          <nav className="hidden gap-7 text-sm text-[var(--wood-dark)] md:flex">
-            <a href="#lucrari" className="hover:text-[var(--accent-red)]">
-              Lucrari
-            </a>
-            <a href="#despre" className="hover:text-[var(--accent-red)]">
-              Despre
-            </a>
-            <a href="#proces" className="hover:text-[var(--accent-red)]">
-              Proces
-            </a>
-            <a href="#contact" className="hover:text-[var(--accent-red)]">
-              Contact
-            </a>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main>
         <section className="mx-auto grid max-w-6xl gap-10 px-5 pb-18 pt-8 md:grid-cols-12 md:px-8 md:pt-10">
@@ -1829,36 +1806,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-[var(--border-soft)] bg-[color:rgba(234,217,198,0.7)]">
-        <div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-8 md:flex-row md:items-center md:justify-between md:px-8">
-          <div>
-            <p className="font-heading text-2xl text-[var(--wood-dark)]">
-              Paul Botescu
-            </p>
-            <p className="text-sm text-[var(--text-main)]/80">
-              Sculptura in lemn, lucrata manual cu respect pentru traditie.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-5 text-sm text-[var(--wood-dark)]">
-            <a href="#lucrari" className="hover:text-[var(--accent-red)]">
-              Lucrari
-            </a>
-            <a href="#despre" className="hover:text-[var(--accent-red)]">
-              Despre
-            </a>
-            <a href="#proces" className="hover:text-[var(--accent-red)]">
-              Proces
-            </a>
-            <a href="#contact" className="hover:text-[var(--accent-red)]">
-              Contact
-            </a>
-          </div>
-        </div>
-        <p className="pb-6 text-center text-xs text-[var(--text-main)]/70">
-          © {new Date().getFullYear()} Atelier Paul Botescu. Toate drepturile
-          rezervate.
-        </p>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
