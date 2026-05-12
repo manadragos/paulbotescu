@@ -410,13 +410,20 @@ export default function Home() {
         </section>
 
         <section className="mx-auto max-w-6xl px-5 py-18 md:px-8">
-          <div className="rounded-sm border border-[var(--border-soft)] bg-[var(--wood-dark)] px-6 py-12 text-center shadow-[0_14px_28px_rgba(74,46,31,0.2)] md:px-14">
-            <p className="font-heading text-3xl leading-relaxed text-[var(--background-soft)] md:text-4xl">
-              &ldquo;Fiecare bucata de lemn isi poarta propria poveste.&rdquo;
+          <div className="text-center">
+            <p className="font-heading text-3xl leading-relaxed text-[var(--wood-dark)] md:text-4xl">
+              &ldquo;Lemnul se încarcă cu suflet&rdquo;
             </p>
-            <p className="mt-4 text-xs uppercase tracking-[0.2em] text-[var(--accent-gold)]">
-              Atelier de sculptura traditionala
-            </p>
+            <div className="mx-auto mt-8 w-full max-w-[min(100%,1100px)]">
+              <Image
+                src="/images/catapeteasma2.jpg"
+                alt="Catapeteasma — detaliu sculptura in lemn"
+                width={1100}
+                height={736}
+                className="h-auto w-full object-contain"
+                sizes="(max-width: 768px) 100vw, 1100px"
+              />
+            </div>
           </div>
         </section>
 

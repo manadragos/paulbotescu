@@ -58,6 +58,19 @@ const troitaDeHotarAlbumImages: AlbumImage[] = [
   },
 ];
 
+const troitaStejarAlbumImages: AlbumImage[] = Array.from(
+  { length: 10 },
+  (_, index) => {
+    const n = index + 1;
+    const base = `/images/troita stejar/troitastejar${n}.jpg`;
+    return {
+      thumbnailSrc: base,
+      fullSrc: base,
+      alt: `Troita de stejar imagine ${n}`,
+    };
+  },
+);
+
 const cruceModelSapantaAlbumImages: AlbumImage[] = [
   {
     thumbnailSrc:
@@ -768,7 +781,115 @@ const potirSiSfantulDiscAlbumImages: AlbumImage[] = Array.from(
   },
 );
 
+const masaStejarMasivAlbumImages: AlbumImage[] = Array.from(
+  { length: 5 },
+  (_, index) => {
+    const n = index + 1;
+    const base = `/images/Masa 14 persoane stejar masiv/Masa14persoanestejarmasiv${n}.jpg`;
+    return {
+      thumbnailSrc: base,
+      fullSrc: base,
+      alt: `Masa stejar masiv imagine ${n}`,
+    };
+  },
+);
+
+const raclaSfantulLucaCrimeeiAlbumImages: AlbumImage[] = Array.from(
+  { length: 29 },
+  (_, index) => {
+    const n = index + 1;
+    const base = `/images/Racla Sfantului Luca al Crimeei/RaclaSfantuluiLucaalCrimeei${n}.jpg`;
+    return {
+      thumbnailSrc: base,
+      fullSrc: base,
+      alt: `Racla Sfantului Luca al Crimeei imagine ${n}`,
+    };
+  },
+);
+
+const birouNucSiZebranoAlbumImages: AlbumImage[] = Array.from(
+  { length: 6 },
+  (_, index) => {
+    const n = index + 1;
+    const base = `/images/Birou nuc si zebrano/Birounucsizebrano${n}.jpg`;
+    return {
+      thumbnailSrc: base,
+      fullSrc: base,
+      alt: `Birou nuc si zebrano imagine ${n}`,
+    };
+  },
+);
+
+const catapeteasmaAlbumFileNames = [
+  "catepeteasma0.jpg",
+  "catepeteasma01.jpg",
+  "catepeteasma02.jpg",
+  "catepeteasma03.jpg",
+  "catepeteasma04.jpg",
+  "catepeteasma05.jpg",
+  "catepeteasma06.jpg",
+  "catepeteasma07.jpg",
+  "catepeteasma08.jpg",
+  "catepeteasma09.jpg",
+  "catepeteasma10.jpg",
+  "catepeteasma12.jpg",
+  "catepeteasma13.jpg",
+  "catepeteasma14.jpg",
+  "catepeteasma15.jpg",
+  "catepeteasma16.jpg",
+  "catepeteasma17.jpg",
+] as const;
+
+const catapeteasmaAlbumImages: AlbumImage[] = catapeteasmaAlbumFileNames.map(
+  (file, index) => ({
+    thumbnailSrc: `/images/catapeteasma/${file}`,
+    fullSrc: `/images/catapeteasma/${file}`,
+    alt: `Catapeteasma imagine ${index + 1}`,
+  }),
+);
+
 export const works: Work[] = [
+  {
+    category: "Birou nuc si zebrano",
+    title: "",
+    description: "",
+    image: "/images/Birou nuc si zebrano/Birounucsizebrano1.jpg",
+    imageAlt: "Birou nuc si zebrano",
+    albumImages: birouNucSiZebranoAlbumImages,
+  },
+  {
+    category: "Racla Sfantului Luca al Crimeei",
+    title: "",
+    description: "",
+    image:
+      "/images/Racla Sfantului Luca al Crimeei/RaclaSfantuluiLucaalCrimeei1.jpg",
+    imageAlt: "Racla Sfantului Luca al Crimeei",
+    albumImages: raclaSfantulLucaCrimeeiAlbumImages,
+  },
+  {
+    category: "Masa stejar masiv",
+    title: "",
+    description: "",
+    image: "/images/Masa 14 persoane stejar masiv/Masa14persoanestejarmasiv1.jpg",
+    imageAlt: "Masa stejar masiv",
+    albumImages: masaStejarMasivAlbumImages,
+  },
+  {
+    category: "Troita de stejar",
+    title: "",
+    description: "",
+    image: "/images/troita stejar/troitastejar1.jpg",
+    imageAlt: "Troita de stejar",
+    albumImages: troitaStejarAlbumImages,
+  },
+  {
+    category: "Catapeteasma",
+    title: "",
+    description: "",
+    image: "/images/catapeteasma/catepeteasma08.jpg",
+    imageAlt: "Catapeteasma",
+    albumImages: catapeteasmaAlbumImages,
+  },
   {
     category: "Triptice",
     title: "",

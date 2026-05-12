@@ -103,9 +103,6 @@ export function LucrariGallery() {
     return works.slice(start, start + PAGE_SIZE);
   }, [currentPage]);
 
-  const rangeStart = (currentPage - 1) * PAGE_SIZE + 1;
-  const rangeEnd = Math.min(currentPage * PAGE_SIZE, works.length);
-
   useEffect(() => {
     setSelectedWork(null);
     setSelectedPhotoIndex(0);
@@ -129,13 +126,6 @@ export function LucrariGallery() {
             curat si proportii stabile. Galeria de mai jos este pregatita pentru
             fotografii reale de atelier si de montaj.
           </p>
-
-          {totalPages > 1 ? (
-            <p className="mt-3 text-sm text-[var(--wood-mid)]">
-              Afisare {rangeStart}–{rangeEnd} din {works.length} albume (pagina{" "}
-              {currentPage} din {totalPages}).
-            </p>
-          ) : null}
 
           <div className="mt-12 grid gap-x-8 gap-y-14 md:grid-cols-2">
             {pageWorks.map((work, index) => (
