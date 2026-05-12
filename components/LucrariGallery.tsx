@@ -1,11 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { FramedImage } from "@/components/FramedImage";
 import { works, type AlbumImage, type Work } from "@/components/lucrari-data";
 
+const PAGE_SIZE = 10;
+
+function lucrariListHref(page: number) {
+  if (page <= 1) return "/lucrari#lucrari";
+  return `/lucrari?page=${page}#lucrari`;
+}
+
 export function LucrariGallery() {
+  const searchParams = useSearchParams();
   const [selectedWork, setSelectedWork] = useState<Work | null>(null);
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(0);
   const [carouselStartIndex, setCarouselStartIndex] = useState(0);
@@ -80,6 +90,29 @@ export function LucrariGallery() {
     (_, offset) => (carouselStartIndex + offset) % albumImageCount,
   );
 
+  const totalPages = Math.max(1, Math.ceil(works.length / PAGE_SIZE));
+  const currentPage = useMemo(() => {
+    const raw = Number.parseInt(searchParams.get("page") ?? "1", 10);
+    if (!Number.isFinite(raw) || raw < 1) return 1;
+    if (raw > totalPages) return totalPages;
+    return raw;
+  }, [searchParams, totalPages]);
+
+  const pageWorks = useMemo(() => {
+    const start = (currentPage - 1) * PAGE_SIZE;
+    return works.slice(start, start + PAGE_SIZE);
+  }, [currentPage]);
+
+  const rangeStart = (currentPage - 1) * PAGE_SIZE + 1;
+  const rangeEnd = Math.min(currentPage * PAGE_SIZE, works.length);
+
+  useEffect(() => {
+    setSelectedWork(null);
+    setSelectedPhotoIndex(0);
+    setCarouselStartIndex(0);
+    setIsFullscreenOpen(false);
+  }, [currentPage]);
+
   return (
     <>
         <div className="section-divider mx-auto max-w-6xl px-5 md:px-8" />
@@ -97,14 +130,23 @@ export function LucrariGallery() {
             fotografii reale de atelier si de montaj.
           </p>
 
+          {totalPages > 1 ? (
+            <p className="mt-3 text-sm text-[var(--wood-mid)]">
+              Afisare {rangeStart}–{rangeEnd} din {works.length} albume (pagina{" "}
+              {currentPage} din {totalPages}).
+            </p>
+          ) : null}
+
           <div className="mt-12 grid gap-x-8 gap-y-14 md:grid-cols-2">
-            {works.map((work, index) => (
-              <article key={work.category || `work-${index}`}>
+            {pageWorks.map((work, index) => (
+              <article
+                key={work.category || `work-${(currentPage - 1) * PAGE_SIZE + index}`}
+              >
                 <button
                   type="button"
                   onClick={() => openAlbum(work)}
                   className="group block w-full text-left"
-                  aria-label={`Deschide albumul ${work.title}`}
+                  aria-label={`Deschide albumul ${work.title || work.category}`}
                   style={{
                     cursor:
                       "url('/images/chisel_cursor_large.png') 7 4, pointer",
@@ -137,6 +179,59 @@ export function LucrariGallery() {
               </article>
             ))}
           </div>
+
+          {totalPages > 1 ? (
+            <nav
+              className="mt-14 flex flex-col items-center gap-5 border-t border-[var(--border-soft)]/80 pt-10"
+              aria-label="Paginare galerie lucrari"
+            >
+              <p className="text-xs uppercase tracking-[0.2em] text-[var(--wood-mid)]">
+                Pagini
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                {currentPage > 1 ? (
+                  <Link
+                    href={lucrariListHref(currentPage - 1)}
+                    className="rounded-sm border border-[var(--wood-mid)] px-3 py-2 text-xs uppercase tracking-[0.12em] text-[var(--wood-dark)] transition hover:bg-[var(--panel)]"
+                  >
+                    Anterioara
+                  </Link>
+                ) : (
+                  <span className="rounded-sm border border-[var(--border-soft)] px-3 py-2 text-xs uppercase tracking-[0.12em] text-[var(--wood-mid)]/50">
+                    Anterioara
+                  </span>
+                )}
+                <div className="mx-1 flex flex-wrap justify-center gap-1.5 sm:gap-2">
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
+                    <Link
+                      key={n}
+                      href={lucrariListHref(n)}
+                      className={
+                        n === currentPage
+                          ? "min-w-[2.25rem] rounded-sm border border-[var(--wood-dark)] bg-[var(--panel)] px-2.5 py-2 text-center text-sm font-semibold text-[var(--wood-dark)]"
+                          : "min-w-[2.25rem] rounded-sm border border-[var(--border-soft)] px-2.5 py-2 text-center text-sm text-[var(--wood-dark)] transition hover:border-[var(--wood-mid)] hover:bg-[color:rgba(255,252,246,0.55)]"
+                      }
+                      aria-current={n === currentPage ? "page" : undefined}
+                    >
+                      {n}
+                    </Link>
+                  ))}
+                </div>
+                {currentPage < totalPages ? (
+                  <Link
+                    href={lucrariListHref(currentPage + 1)}
+                    className="rounded-sm border border-[var(--wood-mid)] px-3 py-2 text-xs uppercase tracking-[0.12em] text-[var(--wood-dark)] transition hover:bg-[var(--panel)]"
+                  >
+                    Urmatoarea
+                  </Link>
+                ) : (
+                  <span className="rounded-sm border border-[var(--border-soft)] px-3 py-2 text-xs uppercase tracking-[0.12em] text-[var(--wood-mid)]/50">
+                    Urmatoarea
+                  </span>
+                )}
+              </div>
+            </nav>
+          ) : null}
         </section>
 
         {selectedWork && (
