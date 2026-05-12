@@ -18,7 +18,7 @@ export function SiteFooter() {
           className="flex flex-wrap gap-5 text-sm text-[var(--wood-dark)]"
           aria-label="Navigare subsol"
         >
-          <Link href="/#lucrari" className="hover:text-[var(--accent-red)]">
+          <Link href="/lucrari" className="hover:text-[var(--accent-red)]">
             Lucrari
           </Link>
           <Link href="/in-atelier" className="hover:text-[var(--accent-red)]">

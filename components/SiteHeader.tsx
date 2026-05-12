@@ -18,7 +18,10 @@ export function SiteHeader() {
           className="hidden gap-7 text-sm text-[var(--wood-dark)] md:flex"
           aria-label="Navigare principala"
         >
-          <Link href="/#lucrari" className="hover:text-[var(--accent-red)]">
+          <Link href="/" className="hover:text-[var(--accent-red)]">
+            Acasă
+          </Link>
+          <Link href="/lucrari" className="hover:text-[var(--accent-red)]">
             Lucrari
           </Link>
           <Link href="/in-atelier" className="hover:text-[var(--accent-red)]">
