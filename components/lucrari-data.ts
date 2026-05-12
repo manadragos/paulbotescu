@@ -820,6 +820,32 @@ const birouNucSiZebranoAlbumImages: AlbumImage[] = Array.from(
   },
 );
 
+const citelnitaCantaretiAlbumImages: AlbumImage[] = Array.from(
+  { length: 15 },
+  (_, index) => {
+    const n = index + 1;
+    const base = `/images/Citelnita cantareti/Citelnitacantareti${n}.jpg`;
+    return {
+      thumbnailSrc: base,
+      fullSrc: base,
+      alt: `Citelniță cântăreți imagine ${n}`,
+    };
+  },
+);
+
+const stativSfEvanghelieAlbumImages: AlbumImage[] = Array.from(
+  { length: 15 },
+  (_, index) => {
+    const n = index + 1;
+    const base = `/images/Stativ Sf. Evanghelie/StativSfEvanghelie${n}.jpg`;
+    return {
+      thumbnailSrc: base,
+      fullSrc: base,
+      alt: `Stativ Sf. Evanghelie imagine ${n}`,
+    };
+  },
+);
+
 const catapeteasmaAlbumFileNames = [
   "catepeteasma0.jpg",
   "catepeteasma01.jpg",
@@ -849,6 +875,22 @@ const catapeteasmaAlbumImages: AlbumImage[] = catapeteasmaAlbumFileNames.map(
 );
 
 export const works: Work[] = [
+  {
+    category: "Citelniță cântăreți",
+    title: "",
+    description: "",
+    image: "/images/Citelnita cantareti/Citelnitacantareti15.jpg",
+    imageAlt: "Citelniță cântăreți",
+    albumImages: citelnitaCantaretiAlbumImages,
+  },
+  {
+    category: "Stativ Sf. Evanghelie",
+    title: "",
+    description: "",
+    image: "/images/Stativ Sf. Evanghelie/StativSfEvanghelie11.jpg",
+    imageAlt: "Stativ Sf. Evanghelie",
+    albumImages: stativSfEvanghelieAlbumImages,
+  },
   {
     category: "Birou nuc si zebrano",
     title: "",
