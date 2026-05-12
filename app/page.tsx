@@ -3,7 +3,7 @@
 import Image from "next/image";
 import rehypeRaw from "rehype-raw";
 import ReactMarkdown from "react-markdown";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 
@@ -1057,6 +1057,85 @@ function FramedImage({
   );
 }
 
+/** Foto in modalul CV — sursa 1936×1296; chenar+latura afisare ~660px (+20 fata de 640). */
+const CV_CATAPETESMA_SRC = "/images/catapeteasma.jpg";
+const CV_CATAPETESMA_W = 660;
+const CV_CATAPETESMA_H = Math.round((1296 * 660) / 1936);
+
+/** Markeri din `public/cv.md` pentru pozitionare imagine / video in flux. */
+const CV_MD_BODY_START = "**Data nașterii:**";
+const CV_MD_TEATRU_LINE =
+  "Teatrul Național București. Expoziție Icoana-credință și tradiție (15 decembrie 2016 - 12 ianuarie 2017) <br />";
+
+function splitCvMarkdownForLayout(raw: string):
+  | { mode: "split"; intro: string; main: string; tail: string }
+  | { mode: "fallback"; full: string } {
+  const iBody = raw.indexOf(CV_MD_BODY_START);
+  if (iBody === -1) {
+    return { mode: "fallback", full: raw };
+  }
+  const intro = raw.slice(0, iBody);
+  const fromBody = raw.slice(iBody);
+  const iTeatru = fromBody.indexOf(CV_MD_TEATRU_LINE);
+  if (iTeatru === -1) {
+    return { mode: "split", intro, main: fromBody, tail: "" };
+  }
+  const main = fromBody.slice(0, iTeatru + CV_MD_TEATRU_LINE.length);
+  const tail = fromBody.slice(iTeatru + CV_MD_TEATRU_LINE.length);
+  return { mode: "split", intro, main, tail };
+}
+
+const cvModalMarkdownComponents = {
+  h1: ({ ...props }) => (
+    <h1
+      className="font-heading mb-3 text-[length:clamp(1.375rem,0.92rem+1.9vw,1.875rem)] text-[var(--wood-dark)] sm:mb-4"
+      {...props}
+    />
+  ),
+  h2: ({ ...props }) => (
+    <h2
+      className="mt-5 mb-2 text-[length:clamp(1.125rem,0.82rem+1.15vw,1.5rem)] font-semibold text-[var(--wood-dark)] sm:mt-7 sm:mb-3"
+      {...props}
+    />
+  ),
+  h3: ({ ...props }) => (
+    <h3
+      className="mt-4 mb-2 text-[length:clamp(1rem,0.78rem+0.85vw,1.25rem)] font-semibold text-[var(--wood-dark)] sm:mt-5"
+      {...props}
+    />
+  ),
+  p: ({ ...props }) => (
+    <p
+      className="mb-2 text-[length:clamp(0.8125rem,0.74rem+0.55vw,1.02875rem)] leading-[1.55] lg:leading-8"
+      {...props}
+    />
+  ),
+  ul: ({ ...props }) => (
+    <ul
+      className="mb-4 list-disc space-y-1 pl-4 sm:pl-6"
+      {...props}
+    />
+  ),
+  ol: ({ ...props }) => (
+    <ol
+      className="mb-4 list-decimal space-y-1 pl-4 sm:pl-6"
+      {...props}
+    />
+  ),
+  li: ({ ...props }) => (
+    <li
+      className="text-[length:clamp(0.8125rem,0.74rem+0.55vw,1.02875rem)] leading-[1.45] lg:leading-7"
+      {...props}
+    />
+  ),
+  strong: ({ ...props }) => (
+    <strong
+      className="font-semibold text-[var(--wood-dark)]"
+      {...props}
+    />
+  ),
+};
+
 export default function Home() {
   const [selectedWork, setSelectedWork] = useState<Work | null>(null);
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(0);
@@ -1066,6 +1145,7 @@ export default function Home() {
   const [cvContent, setCvContent] = useState("");
   const [isCvLoading, setIsCvLoading] = useState(false);
   const [cvError, setCvError] = useState("");
+  const cvLayout = useMemo(() => splitCvMarkdownForLayout(cvContent), [cvContent]);
   const touchStartXRef = useRef<number | null>(null);
   const fallbackAlbumImages: AlbumImage[] = Array.from({ length: 4 }).map(
     (_, index) => ({
@@ -1541,7 +1621,7 @@ export default function Home() {
               onClick={() => setIsCvOpen(false)}
               aria-label="Inchide CV"
             />
-            <div className="relative z-10 flex w-[min(100%,96vw)] max-w-[1520px] flex-col overflow-y-auto rounded-sm border border-[var(--border-soft)] bg-[var(--background-soft)] px-3 pb-6 pt-4 shadow-[0_24px_52px_rgba(22,14,9,0.5)] sm:max-h-[92svh] sm:px-5 sm:pt-5 md:px-7 md:pt-7 lg:px-10 lg:pt-10">
+            <div className="relative z-10 flex w-[min(100%,96vw)] max-w-[760px] flex-col overflow-y-auto rounded-sm border border-[var(--border-soft)] bg-[var(--background-soft)] px-3 pb-6 pt-4 shadow-[0_24px_52px_rgba(22,14,9,0.5)] sm:max-h-[92svh] sm:px-5 sm:pt-5 md:px-7 md:pt-7 lg:px-10 lg:pt-10">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-[var(--accent-red)]">
@@ -1560,92 +1640,108 @@ export default function Home() {
                 </button>
               </div>
 
-              <div className="mt-6 grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_640px] lg:items-start">
-                <div className="min-w-0 w-full rounded-sm border border-[var(--border-soft)] bg-[color:rgba(255,252,246,0.6)] p-3 sm:p-5 md:p-6">
-                  {isCvLoading ? (
-                    <p className="text-sm text-[var(--wood-mid)]">
-                      Se incarca CV-ul...
-                    </p>
-                  ) : cvError ? (
-                    <p className="text-sm text-[var(--accent-red)]">
-                      {cvError}
-                    </p>
-                  ) : (
-                    <div className="min-w-0 max-w-full break-words text-[var(--text-main)]/90">
-                      <ReactMarkdown
-                        rehypePlugins={[rehypeRaw]}
-                        components={{
-                          h1: ({ ...props }) => (
-                            <h1
-                              className="font-heading mb-3 text-[length:clamp(1.375rem,0.92rem+1.9vw,1.875rem)] text-[var(--wood-dark)] sm:mb-4"
-                              {...props}
-                            />
-                          ),
-                          h2: ({ ...props }) => (
-                            <h2
-                              className="mt-5 mb-2 text-[length:clamp(1.125rem,0.82rem+1.15vw,1.5rem)] font-semibold text-[var(--wood-dark)] sm:mt-7 sm:mb-3"
-                              {...props}
-                            />
-                          ),
-                          h3: ({ ...props }) => (
-                            <h3
-                              className="mt-4 mb-2 text-[length:clamp(1rem,0.78rem+0.85vw,1.25rem)] font-semibold text-[var(--wood-dark)] sm:mt-5"
-                              {...props}
-                            />
-                          ),
-                          p: ({ ...props }) => (
-                            <p
-                              className="mb-2 text-[length:clamp(0.8125rem,0.74rem+0.55vw,1.02875rem)] leading-[1.55] lg:leading-8"
-                              {...props}
-                            />
-                          ),
-                          ul: ({ ...props }) => (
-                            <ul
-                              className="mb-4 list-disc space-y-1 pl-4 sm:pl-6"
-                              {...props}
-                            />
-                          ),
-                          ol: ({ ...props }) => (
-                            <ol
-                              className="mb-4 list-decimal space-y-1 pl-4 sm:pl-6"
-                              {...props}
-                            />
-                          ),
-                          li: ({ ...props }) => (
-                            <li
-                              className="text-[length:clamp(0.8125rem,0.74rem+0.55vw,1.02875rem)] leading-[1.45] lg:leading-7"
-                              {...props}
-                            />
-                          ),
-                          strong: ({ ...props }) => (
-                            <strong
-                              className="font-semibold text-[var(--wood-dark)]"
-                              {...props}
-                            />
-                          ),
-                        }}
-                      >
-                        {cvContent}
-                      </ReactMarkdown>
-                    </div>
-                  )}
-                </div>
-
-                <div className="order-2 flex min-w-0 w-full flex-col gap-4 lg:order-none">
-                  <div className="overflow-hidden rounded-sm border border-[var(--border-soft)] bg-[color:rgba(255,252,246,0.6)] p-2">
-                    <iframe
-                      src="https://www.youtube.com/embed/_E0hffH4dUA"
-                      width="100%"
-                      height={540}
-                      style={{ border: "none", overflow: "hidden" }}
-                      scrolling="no"
-                      frameBorder="0"
-                      allowFullScreen
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      className="aspect-video w-full lg:aspect-auto lg:h-[540px]"
-                    />
+              <div className="mt-6 min-w-0 w-full rounded-sm border border-[var(--border-soft)] bg-[color:rgba(255,252,246,0.6)] p-3 sm:p-5 md:p-6">
+                {isCvLoading ? (
+                  <p className="text-sm text-[var(--wood-mid)]">
+                    Se incarca CV-ul...
+                  </p>
+                ) : cvError ? (
+                  <p className="text-sm text-[var(--accent-red)]">
+                    {cvError}
+                  </p>
+                ) : (
+                  <div className="min-w-0 max-w-full break-words text-[var(--text-main)]/90">
+                    {cvLayout.mode === "fallback" ? (
+                      <>
+                        <ReactMarkdown
+                          rehypePlugins={[rehypeRaw]}
+                          components={cvModalMarkdownComponents}
+                        >
+                          {cvLayout.full}
+                        </ReactMarkdown>
+                        <div className="mx-auto mt-1 w-full max-w-[660px] overflow-hidden rounded-sm border border-[var(--border-soft)] bg-[color:rgba(255,252,246,0.6)] p-[5px]">
+                          <Image
+                            src={CV_CATAPETESMA_SRC}
+                            alt="Catapeteasma — lucrare sculptata in lemn"
+                            width={CV_CATAPETESMA_W}
+                            height={CV_CATAPETESMA_H}
+                            className="h-auto w-full rounded-sm object-contain"
+                            sizes="(min-width: 1024px) 660px, min(96vw, 660px)"
+                          />
+                        </div>
+                        <div className="mx-auto mt-6 w-full max-w-[660px] overflow-hidden rounded-sm border border-[var(--border-soft)] bg-[color:rgba(255,252,246,0.6)] p-[5px]">
+                          <iframe
+                            src="https://www.youtube.com/embed/_E0hffH4dUA"
+                            width="100%"
+                            height={540}
+                            style={{ border: "none", overflow: "hidden" }}
+                            scrolling="no"
+                            frameBorder="0"
+                            allowFullScreen
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            className="aspect-video w-full rounded-sm lg:aspect-auto lg:h-[540px]"
+                          />
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        {cvLayout.intro.trim() ? (
+                          <div
+                            className="mt-[40px] [&_p]:mx-auto [&_p]:max-w-[660px] [&_p]:text-center [&_em]:block [&_em]:font-heading [&_em]:text-[length:clamp(1.05rem,0.9rem+0.52vw,1.38rem)] [&_em]:leading-snug [&_em]:text-[var(--wood-dark)] [&_em]:italic"
+                          >
+                            <ReactMarkdown
+                              rehypePlugins={[rehypeRaw]}
+                              components={cvModalMarkdownComponents}
+                            >
+                              {cvLayout.intro}
+                            </ReactMarkdown>
+                          </div>
+                        ) : null}
+                        <div className="mx-auto -mt-[24px] w-full max-w-[660px] overflow-hidden rounded-sm border border-[var(--border-soft)] bg-[color:rgba(255,252,246,0.6)] p-[5px]">
+                          <Image
+                            src={CV_CATAPETESMA_SRC}
+                            alt="Catapeteasma — lucrare sculptata in lemn"
+                            width={CV_CATAPETESMA_W}
+                            height={CV_CATAPETESMA_H}
+                            className="h-auto w-full rounded-sm object-contain"
+                            sizes="(min-width: 1024px) 660px, min(96vw, 660px)"
+                          />
+                        </div>
+                        {cvLayout.main.trim() ? (
+                          <div className="pt-[40px]">
+                            <ReactMarkdown
+                              rehypePlugins={[rehypeRaw]}
+                              components={cvModalMarkdownComponents}
+                            >
+                              {cvLayout.main}
+                            </ReactMarkdown>
+                          </div>
+                        ) : null}
+                        <div className="mx-auto mt-6 w-full max-w-[660px] overflow-hidden rounded-sm border border-[var(--border-soft)] bg-[color:rgba(255,252,246,0.6)] p-[5px]">
+                          <iframe
+                            src="https://www.youtube.com/embed/_E0hffH4dUA"
+                            width="100%"
+                            height={540}
+                            style={{ border: "none", overflow: "hidden" }}
+                            scrolling="no"
+                            frameBorder="0"
+                            allowFullScreen
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            className="aspect-video w-full rounded-sm lg:aspect-auto lg:h-[540px]"
+                          />
+                        </div>
+                        {cvLayout.tail.trim() ? (
+                          <ReactMarkdown
+                            rehypePlugins={[rehypeRaw]}
+                            components={cvModalMarkdownComponents}
+                          >
+                            {cvLayout.tail}
+                          </ReactMarkdown>
+                        ) : null}
+                      </>
+                    )}
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
