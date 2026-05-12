@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 
@@ -32,6 +33,14 @@ const FILM_20_ID = "BefHhebMKvw"; // https://youtu.be/BefHhebMKvw
 const FILM_21_ID = "vr6fiJljY6I"; // https://youtu.be/vr6fiJljY6I
 const FILM_22_ID = "0nDk0dmtfuU"; // https://youtu.be/0nDk0dmtfuU
 const FILM_23_ID = "g5GyJeoid14"; // https://youtu.be/g5GyJeoid14
+
+const TRINITAS_FB_VIDEO_HREF =
+  "https://www.facebook.com/trinitastv/videos/1114605440405032/";
+
+/** `public/images/in atelier.jpg` — sursa 1512×2016; afisare la 50%. */
+const IN_ATELIER_IMAGE_SRC = "/images/in%20atelier.jpg";
+const IN_ATELIER_IMAGE_HALF_W = 756;
+const IN_ATELIER_IMAGE_HALF_H = 1008;
 
 function AtelierYouTubeVideo({
   videoId,
@@ -67,6 +76,33 @@ export default function InAtelierPage() {
           <h1 className="font-heading text-center text-[length:clamp(1.35rem,2.8vw,2.25rem)] leading-snug text-[var(--wood-dark)] md:leading-tight">
             Atelierul, locul unde timpul lucreaza impreuna cu mana
           </h1>
+
+          <div className="mx-auto mt-10 w-full max-w-[min(100%,756px)]">
+            <Image
+              src={IN_ATELIER_IMAGE_SRC}
+              alt="In atelier — Paul Botescu"
+              width={IN_ATELIER_IMAGE_HALF_W}
+              height={IN_ATELIER_IMAGE_HALF_H}
+              className="h-auto w-full rounded-sm border border-[var(--border-soft)] bg-[color:rgba(255,252,246,0.6)] object-contain"
+              sizes="(max-width: 768px) 100vw, 756px"
+              priority
+            />
+          </div>
+
+          <div className="mx-auto mt-8 w-full max-w-[min(100%,620px)] overflow-hidden rounded-sm border border-[var(--border-soft)] bg-[color:rgba(255,252,246,0.6)] px-2 pt-2 pb-0">
+            <iframe
+              src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(TRINITAS_FB_VIDEO_HREF)}&show_text=false&t=0&width=620`}
+              width="100%"
+              height={360}
+              style={{ border: "none", overflow: "hidden" }}
+              scrolling="no"
+              frameBorder="0"
+              allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              className="block aspect-[620/360] w-full lg:aspect-auto lg:h-[360px]"
+              title="Restaurarea catapetesmei Brâncovenești — Trinitas TV"
+            />
+          </div>
 
           <div className="mt-12 grid grid-cols-1 place-items-center gap-10 md:grid-cols-2 md:gap-x-12 md:gap-y-12 lg:gap-x-16">
             <AtelierYouTubeVideo videoId={FILM_1_ID} title="Film 1 — In atelier" />

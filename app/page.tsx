@@ -1645,20 +1645,6 @@ export default function Home() {
                       className="aspect-video w-full lg:aspect-auto lg:h-[540px]"
                     />
                   </div>
-                  <div className="overflow-hidden rounded-sm border border-[var(--border-soft)] bg-[color:rgba(255,252,246,0.6)] px-2 pt-2 pb-0">
-                    <iframe
-                      src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent("https://www.facebook.com/trinitastv/videos/1114605440405032/")}&show_text=false&t=0&width=620`}
-                      width="100%"
-                      height={360}
-                      style={{ border: "none", overflow: "hidden" }}
-                      scrolling="no"
-                      frameBorder="0"
-                      allowFullScreen
-                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                      className="block aspect-[620/360] w-full lg:aspect-auto lg:h-[360px]"
-                      title="Restaurarea catapetesmei Brâncovenești — Trinitas TV"
-                    />
-                  </div>
                 </div>
               </div>
             </div>
